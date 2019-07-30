@@ -121,12 +121,18 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Pour le bon fonctionnement de l'appli à la fois en local et sur Heroku
 django_heroku.settings(locals())
 
+
 # Supprimer l'exigence du SSL pour l'utilisation en local et activer le debug
 if os.path.isfile(os.path.join(BASE_DIR, ".env")):
     del DATABASES['default']['OPTIONS']['sslmode']
-    DEBUG = True
+    # DEBUG = True
 
