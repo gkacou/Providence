@@ -32,12 +32,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'baton',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'blog.apps.BlogConfig',
+    'baton.autodiscover',
 ]
 
 MIDDLEWARE = [
@@ -125,7 +128,18 @@ STATIC_URL = '/static/'
 # STATICFILES_DIRS = (
 #     os.path.join(BASE_DIR, 'static'),
 # )
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+# Configuration du template admin : Baton
+BATON = {
+    'SITE_HEADER': 'Providence',
+    'SITE_TITLE': 'Providence',
+    'INDEX_TITLE': 'Administration du site',
+    'SUPPORT_HREF': '',
+    'COPYRIGHT': '', # noqa
+    'POWERED_BY': 'Providence',
+}
 
 # Pour le bon fonctionnement de l'appli à la fois en local et sur Heroku
 django_heroku.settings(locals())
@@ -134,5 +148,7 @@ django_heroku.settings(locals())
 # Supprimer l'exigence du SSL pour l'utilisation en local et activer le debug
 if os.path.isfile(os.path.join(BASE_DIR, ".env")):
     del DATABASES['default']['OPTIONS']['sslmode']
-    # DEBUG = True
+    DEBUG = True
 
+# Classe User personnalisée pour Providence
+AUTH_USER_MODEL = 'blog.ProvUser'
