@@ -139,6 +139,9 @@ BATON = {
     'SUPPORT_HREF': '',
     'COPYRIGHT': '', # noqa
     'POWERED_BY': 'Providence',
+    # 'MENU': (
+    #     {}
+    # )
 }
 
 # Pour le bon fonctionnement de l'appli à la fois en local et sur Heroku
