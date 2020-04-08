@@ -68,7 +68,16 @@ class CommunauteAdmin(admin.ModelAdmin):
 # Bénéficiaire
 @admin.register(Beneficiaire)
 class BeneficiaireAdmin(admin.ModelAdmin):
-    pass
+    fieldsets = (
+        (None, {
+            'fields': (
+                ('nom', 'prenoms', 'sexe'),
+                ('situation_matrimoniale', 'nb_enfants'),
+                ('anciennete_foi', 'communaute',),
+                ('profession', 'fonction'),
+            )
+        }),
+    )
 
 
 # Cas
@@ -76,6 +85,28 @@ class BeneficiaireAdmin(admin.ModelAdmin):
 class CasAdmin(admin.ModelAdmin):
     form = CasChangeForm
     add_form = CasCreationForm
+    fieldsets = (
+        (None, {
+            'fields': (
+                ('soumis_par', 'reunion',),
+                'urgence',
+                ('nom', 'prenoms', 'sexe'),
+                ('situation_matrimoniale', 'nb_enfants'),
+                ('anciennete_foi', 'communaute',),
+                ('profession', 'fonction'),
+                ('montant_sollicite', 'sollicitation_externe', 'montant_alloue'),
+                ('classification', 'nature'),
+                ('description',),
+            )
+        }),
+        ('Suivi du cas', {
+            'fields': (
+                'suivi',
+                'don_remis',
+                'compte_rendu',
+            )
+        })
+    )
     add_fieldsets = (
         (None, {
             'fields': (
@@ -100,7 +131,7 @@ class CasAdmin(admin.ModelAdmin):
 
     def get_readonly_fields(self, request, obj=None):
         if obj and not request.user.is_superuser:
-            return ('classification',)
+            return ('nom', 'prenoms', 'sexe', 'reunion', 'classification',)
         else:
             return []
 
@@ -143,7 +174,61 @@ class CasAdmin(admin.ModelAdmin):
 class NatureBesoinAdmin(admin.ModelAdmin):
     list_display = ('libelle', 'classification')
 
+
+# Cas (inline) pour affichage dans la page réunion
+class CasSocialInline(admin.TabularInline):
+    model = Cas
+    # extra = 0
+    max_num = 0
+    can_delete = False
+    fields = (
+        'nom',
+        'prenoms',
+        'urgence',
+        'soumis_par',
+        'montant_sollicite',
+        'montant_alloue',
+    )
+    readonly_fields = ('nom', 'prenoms',)
+    show_change_link = True
+    verbose_name = 'social'
+    verbose_name_plural = 'social'
+
+    def get_queryset(self, request):
+        return super().get_queryset(request).filter(classification='S')
+
+class CasMissionInline(admin.TabularInline):
+    model = Cas
+    # extra = 0
+    max_num = 0
+    can_delete = False
+    fields = (
+        'nom',
+        'prenoms',
+        'urgence',
+        'soumis_par',
+        'montant_sollicite',
+        'montant_alloue',
+    )
+    readonly_fields = ('nom', 'prenoms',)
+    show_change_link = True
+    verbose_name = 'mission'
+    verbose_name_plural = 'mission'
+
+    def get_queryset(self, request):
+        return super().get_queryset(request).filter(classification='M')
+
 # Réunion
 @admin.register(Reunion)
 class ReunionAdmin(admin.ModelAdmin):
-    pass
+    fieldsets = (
+        ('Réunion', {
+            'fields': ('membre_hote', 'date_reunion', 'lieu_reunion',),
+            'classes': ('baton-tabs-init', 'baton-tab-fs-cr', ),
+        }),
+        ('Compte-rendu', {
+            'fields': ('compte_rendu', 'liste_presence'),
+            'classes': ('tab-fs-cr',),
+        })
+    )
+    inlines = (CasSocialInline, CasMissionInline,)

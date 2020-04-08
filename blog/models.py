@@ -170,6 +170,7 @@ class Cas(Entite):
         ('C', 'Clos'),
         ('R', 'Reconduit'),
         ('P', 'Reporté'),
+        ('A', 'Annulé'),
     )
 
     soumis_par = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL)
