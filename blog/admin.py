@@ -3,6 +3,7 @@ from django.contrib.admin.options import IS_POPUP_VAR
 from django.contrib.auth.admin import UserAdmin
 from django.db import models
 from django.forms import CheckboxSelectMultiple
+from django.contrib.postgres.aggregates import StringAgg
 
 from .models import (
     ProvUser,
@@ -15,7 +16,6 @@ from .models import (
     Cas,
     Cotisation,
 )
-
 from .forms import CasCreationForm, CasChangeForm
 
 
@@ -182,20 +182,28 @@ class CasSocialInline(admin.TabularInline):
     max_num = 0
     can_delete = False
     fields = (
+        'est_urgent',
         'nom',
         'prenoms',
-        'urgence',
         'soumis_par',
+        'nature_cas',
         'montant_sollicite',
         'montant_alloue',
     )
-    readonly_fields = ('nom', 'prenoms',)
+    readonly_fields = ('nom', 'prenoms', 'est_urgent', 'nature_cas',)
     show_change_link = True
     verbose_name = 'social'
     verbose_name_plural = 'social'
 
     def get_queryset(self, request):
-        return super().get_queryset(request).filter(classification='S')
+        return super().get_queryset(request)\
+            .filter(classification='S')\
+            .annotate(_natures=StringAgg("nature__libelle", ", "))\
+            .order_by("-urgence")
+
+    def nature_cas(self, obj):
+        return obj._natures
+    nature_cas.short_description = "Nature(s)"
 
 class CasMissionInline(admin.TabularInline):
     model = Cas
@@ -203,20 +211,35 @@ class CasMissionInline(admin.TabularInline):
     max_num = 0
     can_delete = False
     fields = (
+        'est_urgent',
         'nom',
         'prenoms',
-        'urgence',
         'soumis_par',
+        'nature_cas',
         'montant_sollicite',
         'montant_alloue',
     )
-    readonly_fields = ('nom', 'prenoms',)
+    readonly_fields = ('nom', 'prenoms', 'est_urgent', 'nature_cas',)
     show_change_link = True
     verbose_name = 'mission'
     verbose_name_plural = 'mission'
 
     def get_queryset(self, request):
-        return super().get_queryset(request).filter(classification='M')
+        return super().get_queryset(request)\
+            .filter(classification='M')\
+            .annotate(_natures=StringAgg("nature__libelle", ", "))\
+            .order_by("-urgence")
+
+    def nature_cas(self, obj):
+        return obj._natures
+    nature_cas.short_description = "Nature(s)"
+
+class CotisationInline(admin.TabularInline):
+    model = Cotisation
+    fields = ('membre', 'montant_social', 'social_libere', 'montant_mission', 'mission_libere',)
+    max_num = 0
+    can_delete = False
+    readonly_fields = ('membre',)
 
 # Réunion
 @admin.register(Reunion)
@@ -224,11 +247,15 @@ class ReunionAdmin(admin.ModelAdmin):
     fieldsets = (
         ('Réunion', {
             'fields': ('membre_hote', 'date_reunion', 'lieu_reunion',),
-            'classes': ('baton-tabs-init', 'baton-tab-fs-cr', ),
+            'classes': ('baton-tabs-init', 'baton-tab-inline-cotisation', 'baton-tab-fs-cr', ),
         }),
+        # ('Cotisations', {
+        #     'fields': ('compte_rendu', 'liste_presence'),
+        #     'classes': ('tab-fs-cr',),
+        # }),
         ('Compte-rendu', {
             'fields': ('compte_rendu', 'liste_presence'),
             'classes': ('tab-fs-cr',),
-        })
+        }),
     )
-    inlines = (CasSocialInline, CasMissionInline,)
+    inlines = (CasSocialInline, CasMissionInline, CotisationInline,)

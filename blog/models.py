@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.conf import settings
+from django.utils.html import format_html
 
 
 CHOIX_SEXE = (
@@ -101,6 +102,22 @@ class Reunion(models.Model):
         verbose_name = "réunion"
         ordering = ('-date_reunion',)
 
+    def save(self, *args, **kwargs):
+        # Après la création d'une réunion, générer les cotisations des membres
+        nouvelle_reunion = self.pk is None
+        super().save(*args, **kwargs)  # Procéder à la sauvegarde
+
+        if nouvelle_reunion:
+            for membre_prov in Membre.objects.filter(personne_physique=True):
+                social = membre_prov.cotisation_social if membre_prov.cotisation_social else 0
+                mission = membre_prov.cotisation_mission if membre_prov.cotisation_mission else 0
+                cotis = Cotisation.objects.create(
+                    membre=membre_prov,
+                    reunion=self,
+                    montant_social=social,
+                    montant_mission=mission
+                )
+
     def __str__(self):
         return f"{self.date_reunion.strftime('%d/%m/%Y')} - {self.membre_hote} ({self.lieu_reunion})"
 
@@ -195,7 +212,7 @@ class Cas(Entite):
         unique_together = ('reunion', 'beneficiaire')
 
     def save(self, *args, **kwargs):
-        # Lors de la création d'un objet, copier les attributs du bénéficiaire
+        # Lors de la création d'un cas, recopier les attributs du bénéficiaire
         if not self.pk:
             benef = self.beneficiaire
             self.nom = benef.nom
@@ -209,6 +226,10 @@ class Cas(Entite):
             self.anciennete_foi = benef.anciennete_foi
         super().save(*args, **kwargs)  # Procéder à la sauvegarde
 
+    def est_urgent(self):
+        return format_html("&#x2714") if self.urgence else "-"
+    est_urgent.short_description = "Cas d'urgence"
+
 
 class Cotisation(models.Model):
     """
@@ -216,14 +237,17 @@ class Cotisation(models.Model):
     """
     membre = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, verbose_name="membre")
     reunion = models.ForeignKey(Reunion, models.CASCADE, verbose_name="réunion")
-    montant_social = models.PositiveIntegerField()
-    social_libere = models.BooleanField(verbose_name="montant social libéré ?")
-    montant_mission = models.PositiveIntegerField()
-    mission_libere = models.BooleanField(verbose_name="montant mission libéré ?")
+    montant_social = models.PositiveIntegerField(default=0)
+    social_libere = models.BooleanField(default=False, verbose_name="montant social libéré ?")
+    montant_mission = models.PositiveIntegerField(default=0)
+    mission_libere = models.BooleanField(default=False, verbose_name="montant mission libéré ?")
 
     class Meta:
-        verbose_name = "cotisation mensuelle"
+        verbose_name = "cotisation du mois"
+        verbose_name_plural = "cotisations du mois"
 
+    # def __str__(self):
+    #     return ' '
 
 class AffectationNonLibere(models.Model):
     """
