@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.db.models import Count, Sum
 from django.conf import settings
 from django.utils.html import format_html
 
@@ -102,6 +103,38 @@ class Reunion(models.Model):
         verbose_name = "réunion"
         ordering = ('-date_reunion',)
 
+    def nombre_cas(self):
+        return self.cas_reunion.count()
+    nombre_cas.short_description = "Nombre de cas"
+
+    def sollicite_social(self):
+        somme = self.cas_reunion.filter(classification='S').\
+            aggregate(social=Sum('montant_sollicite'))
+        return somme['social']
+    sollicite_social.short_description = "Sollicité social"
+
+    def sollicite_mission(self):
+        somme = self.cas_reunion.filter(classification='M').\
+            aggregate(mission=Sum('montant_sollicite'))
+        return somme['mission']
+    sollicite_mission.short_description = "Sollicité mission"
+
+    def total_cotisation(self):
+        return self.cotisations.aggregate(
+            total_social=Sum('montant_social'),
+            total_mission=Sum('montant_mission')
+        )
+
+    # @property
+    def cotisations_social(self):
+        return self.total_cotisation()['total_social']
+    cotisations_social.short_description = "Cotisations social"
+
+    # @property
+    def cotisations_mission(self):
+        return self.total_cotisation()['total_mission']
+    cotisations_mission.short_description = "Cotisations mission"
+
     def save(self, *args, **kwargs):
         # Après la création d'une réunion, générer les cotisations des membres
         nouvelle_reunion = self.pk is None
@@ -154,6 +187,11 @@ class Beneficiaire(Entite):
     """
     Bénéficiaire de soutien de Providence (hérite de Entité)
     """
+
+    def nombre_cas(self):
+        return self.cas_beneficiaire.count()
+    nombre_cas.short_description = "Nombre de cas"
+
     class Meta:
         verbose_name = "bénéficiaire"
 
@@ -191,8 +229,8 @@ class Cas(Entite):
     )
 
     soumis_par = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL)
-    reunion = models.ForeignKey(Reunion, models.CASCADE, blank=False, verbose_name="réunion")
-    beneficiaire = models.ForeignKey(Beneficiaire, models.CASCADE, verbose_name="bénéficiaire")
+    reunion = models.ForeignKey(Reunion, models.CASCADE, blank=False, related_name="cas_reunion", verbose_name="réunion")
+    beneficiaire = models.ForeignKey(Beneficiaire, models.CASCADE, related_name="cas_beneficiaire", verbose_name="bénéficiaire")
     montant_sollicite = models.PositiveIntegerField(null=True, blank=True, verbose_name="montant solllicité")
     montant_alloue = models.PositiveIntegerField(null=True, blank=True, verbose_name="montant alloué")
     sollicitation_externe = models.PositiveIntegerField(null=True, blank=True, verbose_name="solllicitation hors Providence")
@@ -230,13 +268,16 @@ class Cas(Entite):
         return format_html("&#x2714") if self.urgence else "-"
     est_urgent.short_description = "Cas d'urgence"
 
+    def montant_estime(self):
+        pass
+
 
 class Cotisation(models.Model):
     """
     Cotisation mensuelle d'un membre pour le social et la mission
     """
     membre = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, verbose_name="membre")
-    reunion = models.ForeignKey(Reunion, models.CASCADE, verbose_name="réunion")
+    reunion = models.ForeignKey(Reunion, models.CASCADE, related_name="cotisations", verbose_name="réunion")
     montant_social = models.PositiveIntegerField(default=0)
     social_libere = models.BooleanField(default=False, verbose_name="montant social libéré ?")
     montant_mission = models.PositiveIntegerField(default=0)
@@ -246,8 +287,8 @@ class Cotisation(models.Model):
         verbose_name = "cotisation du mois"
         verbose_name_plural = "cotisations du mois"
 
-    # def __str__(self):
-    #     return ' '
+    def __str__(self):
+        return ''
 
 class AffectationNonLibere(models.Model):
     """
