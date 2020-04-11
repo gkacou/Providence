@@ -1,6 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from django.db.models import Count, Sum
+from django.db.models import Count, Sum, F, Q
 from django.conf import settings
 from django.utils.html import format_html
 
@@ -118,6 +118,24 @@ class Reunion(models.Model):
             aggregate(mission=Sum('montant_sollicite'))
         return somme['mission']
     sollicite_mission.short_description = "Sollicité mission"
+
+    def total_urgence_social(self):
+        somme = self.cas_reunion\
+            .filter(classification='S')\
+            .filter(urgence=True)\
+            .aggregate(social=Sum('montant_sollicite'))
+        total = somme['social'] if somme['social'] else 0
+        return total
+    total_urgence_social.short_description = "Urgence social"
+
+    def total_urgence_mission(self):
+        somme = self.cas_reunion\
+            .filter(classification='M')\
+            .filter(urgence=True)\
+            .aggregate(mission=Sum('montant_sollicite'))
+        total = somme['mission'] if somme['mission'] else 0
+        return total
+    total_urgence_mission.short_description = "Urgence mission"
 
     def total_cotisation(self):
         return self.cotisations.aggregate(

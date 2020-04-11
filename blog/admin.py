@@ -271,7 +271,13 @@ class CasSocialInline(admin.TabularInline):
     nature_cas.short_description = "Nature(s)"
 
     def montant_estime(self, obj):
-        estime = obj.montant_sollicite * obj.reunion.cotisations_social() // obj.reunion.sollicite_social()
+        if obj.urgence:
+            estime = obj.montant_sollicite
+        else:
+            urgence_social = obj.reunion.total_urgence_social()
+            cotis_dispo = obj.reunion.cotisations_social() - urgence_social
+            sollicite = obj.reunion.sollicite_social() - urgence_social
+            estime = obj.montant_sollicite * cotis_dispo // sollicite
         return estime
     montant_estime.short_description = "Montant estimé"
 
@@ -308,7 +314,13 @@ class CasMissionInline(admin.TabularInline):
     nature_cas.short_description = "Nature(s)"
 
     def montant_estime(self, obj):
-        estime = obj.montant_sollicite * obj.reunion.cotisations_mission() // obj.reunion.sollicite_mission()
+        if obj.urgence:
+            estime = obj.montant_sollicite
+        else:
+            urgence_mission = obj.reunion.total_urgence_mission()
+            cotis_dispo = obj.reunion.cotisations_mission() - urgence_mission
+            sollicite = obj.reunion.sollicite_mission() - urgence_mission
+            estime = obj.montant_sollicite * cotis_dispo // sollicite
         return estime
     montant_estime.short_description = "Montant estimé"
 
@@ -327,9 +339,7 @@ class ReunionAdmin(admin.ModelAdmin):
     fieldsets = (
         ('Réunion', {
             'fields': (
-                'membre_hote',
-                'date_reunion',
-                ('lieu_reunion', 'nb_cas',),
+                ('date_reunion', 'membre_hote', 'lieu_reunion', 'nb_cas',),
                 ('total_sollicite', 'cotisations_social', 'cotisations_mission')
             ),
             'classes': ('baton-tabs-init', 'baton-tab-inline-cotisations', 'baton-tab-fs-cr', ),
