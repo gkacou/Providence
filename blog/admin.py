@@ -5,6 +5,8 @@ from django.db import models
 from django.db.models import Count, Sum, F, Q
 from django.forms import CheckboxSelectMultiple
 from django.contrib.postgres.aggregates import StringAgg
+from django.utils.html import format_html
+from django.urls import resolve
 
 from .models import (
     ProvUser,
@@ -16,8 +18,9 @@ from .models import (
     NatureBesoin,
     Cas,
     Cotisation,
+    AffectationNonLibere,
 )
-from .forms import CasCreationForm, CasChangeForm
+from .forms import CasCreationForm, CasChangeForm, CotisationChoiceField
 
 
 # Utilisateur Providence
@@ -331,18 +334,68 @@ class CotisationInline(admin.TabularInline):
     can_delete = False
     readonly_fields = ('membre',)
 
+class AffectationNonLibereInline(admin.TabularInline):
+    model = AffectationNonLibere
+    extra = 0
+    # form = AffectationNonLibereForm
+    # fields = ('reunion', 'cotisation', 'collecteur', 'somme', 'classification')
+
+    def get_parent_object_from_request(self, request):
+        """
+        Returns the parent object from the request or None.
+
+        Note that this only works for Inlines, because the `parent_model`
+        is not available in the regular admin.ModelAdmin as an attribute.
+        """
+        resolved = resolve(request.path_info)
+        if resolved.kwargs:
+            return self.parent_model.objects.get(pk=resolved.kwargs['object_id'])
+        return None
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == "cotisation":
+            return CotisationChoiceField(
+                queryset=Cotisation.objects.filter(
+                   Q(social_libere=False) | Q(mission_libere=False),
+                    reunion=self.get_parent_object_from_request(request)
+                )
+            )
+            # kwargs["queryset"] = Cotisation.objects.filter(
+            #     Q(social_libere=False) | Q(mission_libere=False),
+            #     reunion=self.get_parent_object_from_request(request)
+            # )
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
+    
+    
+
 # Réunion
 @admin.register(Reunion)
 class ReunionAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'nb_cas', 'total_sollicite',)
-    readonly_fields = ('nb_cas', 'total_sollicite', 'cotisations_social', 'cotisations_mission',)
+    readonly_fields = (
+        'nb_cas',
+        'total_sollicite',
+        'total_soll_social',
+        'sollicite_mission',
+        'cotisations_social',
+        'cotisations_mission',
+        'disponible_social',
+        'disponible_mission',
+    )
     fieldsets = (
         ('Réunion', {
             'fields': (
                 ('date_reunion', 'membre_hote', 'lieu_reunion', 'nb_cas',),
-                ('total_sollicite', 'cotisations_social', 'cotisations_mission')
+                ('total_soll_social', 'sollicite_mission',),
+                ('cotisations_social', 'cotisations_mission'),
+                ('disponible_social', 'disponible_mission',)
             ),
-            'classes': ('baton-tabs-init', 'baton-tab-inline-cotisations', 'baton-tab-fs-cr', ),
+            'classes': (
+                'baton-tabs-init',
+                'baton-tab-inline-cotisations',
+                'baton-tab-inline-affectations',
+                'baton-tab-fs-cr',
+            ),
         }),
         # ('Cotisations', {
         #     'fields': ('compte_rendu', 'liste_presence'),
@@ -353,12 +406,20 @@ class ReunionAdmin(admin.ModelAdmin):
             'classes': ('tab-fs-cr',),
         }),
     )
+    inlines = (
+        CasSocialInline,
+        CasMissionInline,
+        CotisationInline,
+        AffectationNonLibereInline,
+    )
 
     def get_queryset(self, request):
         queryset = super().get_queryset(request)
         queryset = queryset.annotate(
             _nb_cas=Count("cas_reunion"),
             _total_sollicite=Sum("cas_reunion__montant_sollicite"),
+            _total_soll_social=Sum("cas_reunion__montant_sollicite", filter=Q(cas_reunion__classification='S')),
+            _total_soll_mission=Sum("cas_reunion__montant_sollicite", filter=Q(cas_reunion__classification='M')),
         )
         return queryset
 
@@ -372,4 +433,42 @@ class ReunionAdmin(admin.ModelAdmin):
     total_sollicite.short_description = "Total sollicité"
     total_sollicite.admin_order_field = "_total_sollicite"
 
-    inlines = (CasSocialInline, CasMissionInline, CotisationInline,)
+    def total_soll_social(self, obj):
+        return obj._total_soll_social
+    total_soll_social.short_description = "Sollicité social"
+    total_soll_social.admin_order_field = "_total_soll_social"
+
+    def total_soll_mission(self, obj):
+        return obj._total_soll_mission
+    total_soll_mission.short_description = "Sollicité mission"
+    total_soll_mission.admin_order_field = "_total_soll_mission"
+
+    def disponible_social(self, obj):
+        affecte = obj.cas_reunion\
+            .filter(classification='S')\
+            .filter(urgence=False)\
+            .aggregate(total=Sum('montant_alloue'))
+        alloue = affecte['total'] if affecte['total'] else 0
+        disponible = obj.cotisations_social() - obj.total_urgence_social() - alloue
+        couleur = 'green' if disponible >= 0 else 'red'
+        return format_html(
+            '<span style="font-weight: bold; color: {};">{}</span>',
+            couleur,
+            disponible
+        )
+    disponible_social.short_description = "Reliquat social"
+
+    def disponible_mission(self, obj):
+        affecte = obj.cas_reunion\
+            .filter(classification='M')\
+            .filter(urgence=False)\
+            .aggregate(total=Sum('montant_alloue'))
+        alloue = affecte['total'] if affecte['total'] else 0
+        disponible = obj.cotisations_mission() - obj.total_urgence_mission() - alloue
+        couleur = 'green' if disponible >= 0 else 'red'
+        return format_html(
+            '<span style="font-weight: bold; color: {};">{}</span>',
+            couleur,
+            disponible
+        )
+    disponible_mission.short_description = "Reliquat mission"

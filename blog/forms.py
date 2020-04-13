@@ -1,7 +1,16 @@
 from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import ProvUser, Cas, Reunion, Membre, NatureBesoin
+from django.db.models import Q
+from .models import (
+    ProvUser,
+    Cas,
+    Reunion,
+    Membre,
+    NatureBesoin,
+    AffectationNonLibere,
+    Cotisation,
+)
 
 
 class ProvUserChangeForm(UserChangeForm):
@@ -46,3 +55,29 @@ class CasChangeForm(ModelForm):
     # class Meta:
     #     model = Cas
     #     fields = ('',)
+
+class AffectationNonLibereForm(ModelForm):
+    """
+    Formulaire utilisé pour les affectations de cas non libérés
+    Filtre la liste des cotisations selon la réunion
+    (formulaire inline)
+    """
+    class Meta:
+        model = AffectationNonLibere
+        fields = ('reunion', 'cotisation', 'collecteur', 'somme', 'classification')
+
+    def __init__(self, *args, **kwargs):
+        super(AffectationNonLibereForm, self).__init__(*args, **kwargs)
+        if self.instance.id:
+            self.fields['cotisation'].queryset = Cotisation.objects.filter(
+                Q(social_libere=False) | Q(mission_libere=False),
+                reunion=self.instance.reunion,
+                # reunion__id=8,
+            )
+
+    # def __init__(self, data=None, files=None, auto_id='id_%s', prefix=None, initial=None, error_class=ErrorList, label_suffix=None, empty_permitted=False, instance=None, use_required_attribute=None, renderer=None):
+    #     super().__init__(data=data, files=files, auto_id=auto_id, prefix=prefix, initial=initial, error_class=error_class, label_suffix=label_suffix, empty_permitted=empty_permitted, instance=instance, use_required_attribute=use_required_attribute, renderer=renderer)
+
+class CotisationChoiceField(forms.ModelChoiceField):
+    def label_from_instance(self, obj):
+        return obj.membre

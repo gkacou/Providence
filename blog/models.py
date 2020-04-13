@@ -268,6 +268,11 @@ class Cas(Entite):
         unique_together = ('reunion', 'beneficiaire')
 
     def save(self, *args, **kwargs):
+        # Si le cas est un cas d'urgence, le montant affecté est automatiquement égal
+        # au montant sollicité
+        if self.urgence:
+            self.montant_alloue = self.montant_sollicite
+
         # Lors de la création d'un cas, recopier les attributs du bénéficiaire
         if not self.pk:
             benef = self.beneficiaire
@@ -308,29 +313,38 @@ class Cotisation(models.Model):
     def __str__(self):
         return ''
 
+
+# def cotisation_non_liberee(reunion):
+#     return Q(reunion=reunion) & Q(social_libere=False) | Q(mission_libere=False)
+
 class AffectationNonLibere(models.Model):
     """
     Affectation des cotisations non libérées
     """
+    reunion = models.ForeignKey(
+        Reunion,
+        on_delete=models.CASCADE,
+        related_name="affectations",
+        verbose_name="réunion"
+    )
     cotisation = models.ForeignKey(
         Cotisation,
-        on_delete=models.DO_NOTHING,
-        verbose_name="cotisation"
+        on_delete=models.CASCADE,
+        verbose_name="cotisation de"
     )
-    cotisant = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.DO_NOTHING,
-        related_name="cotisants",
-        verbose_name="cotisant"
-    )
-    somme = models.PositiveIntegerField(verbose_name="montant à récupérer")
     collecteur = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.DO_NOTHING,
         related_name="collecteurs",
-        verbose_name="collecteur"
+        limit_choices_to={'personne_physique': True},
+        verbose_name="Collecté par"
     )
+    somme = models.PositiveIntegerField(verbose_name="montant à récupérer")
+    classification = models.CharField(max_length=1, default='S', choices=CLASSIFICATION_CAS)
 
     class Meta:
-        verbose_name = "affectation cotisation non libérée"
+        verbose_name = "affectation de cotisation non libérée"
+        verbose_name_plural = "affectations des cotisations non libérées"
 
+    def __str__(self):
+        return f"{self.cotisation.membre}"
