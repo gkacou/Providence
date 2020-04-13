@@ -64,7 +64,7 @@ class AffectationNonLibereForm(ModelForm):
     """
     class Meta:
         model = AffectationNonLibere
-        fields = ('reunion', 'cotisation', 'collecteur', 'somme', 'classification')
+        fields = ('reunion', 'cotisation', 'collecteur', 'somme', 'cas')
 
     def __init__(self, *args, **kwargs):
         super(AffectationNonLibereForm, self).__init__(*args, **kwargs)

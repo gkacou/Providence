@@ -340,7 +340,11 @@ class AffectationNonLibere(models.Model):
         verbose_name="Collecté par"
     )
     somme = models.PositiveIntegerField(verbose_name="montant à récupérer")
-    classification = models.CharField(max_length=1, default='S', choices=CLASSIFICATION_CAS)
+    cas = models.ForeignKey(
+        Cas,
+        on_delete=models.CASCADE,
+        related_name='affectation_cas',
+    )
 
     class Meta:
         verbose_name = "affectation de cotisation non libérée"

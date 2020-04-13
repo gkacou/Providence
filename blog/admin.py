@@ -338,7 +338,22 @@ class AffectationNonLibereInline(admin.TabularInline):
     model = AffectationNonLibere
     extra = 0
     # form = AffectationNonLibereForm
-    # fields = ('reunion', 'cotisation', 'collecteur', 'somme', 'classification')
+    fields = (
+        'reunion',
+        'cotisation',
+        'collecteur',
+        'somme',
+        'cas',
+        'classification',
+    )
+    readonly_fields = ('classification',)
+
+    def get_queryset(self, request):
+        return super().get_queryset(request).select_related('cas')
+
+    def classification(self, obj):
+        return obj.cas.get_classification_display()
+    # classification.short_description = "Classification"
 
     def get_parent_object_from_request(self, request):
         """
@@ -360,10 +375,11 @@ class AffectationNonLibereInline(admin.TabularInline):
                     reunion=self.get_parent_object_from_request(request)
                 )
             )
-            # kwargs["queryset"] = Cotisation.objects.filter(
-            #     Q(social_libere=False) | Q(mission_libere=False),
-            #     reunion=self.get_parent_object_from_request(request)
-            # )
+        
+        if db_field.name == "cas":
+            kwargs["queryset"] = Cas.objects.filter(
+                reunion=self.get_parent_object_from_request(request)
+            )
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
     
     
