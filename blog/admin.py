@@ -28,7 +28,7 @@ from .forms import CasCreationForm, CasChangeForm, CotisationChoiceField
 
 
 if platform == "linux" or platform == "linux2":
-    locale.setlocale( locale.LC_ALL, '')
+    locale.setlocale( locale.LC_ALL, 'fr_FR')
 elif platform == "darwin":
     locale.setlocale( locale.LC_ALL, 'fr_FR')
 elif platform == "win32":
