@@ -1,5 +1,5 @@
 import locale
-
+from sys import platform
 from django.contrib import admin
 from django.contrib.admin.options import IS_POPUP_VAR
 from django.contrib.auth.admin import UserAdmin
@@ -27,7 +27,13 @@ from .models import (
 from .forms import CasCreationForm, CasChangeForm, CotisationChoiceField
 
 
-locale.setlocale(locale.LC_ALL, 'French_France.1252')  # Réglages des paramètres d'affichage linguistique
+if platform == "linux" or platform == "linux2":
+    locale.setlocale( locale.LC_ALL, 'fr_FR')
+elif platform == "darwin":
+    locale.setlocale( locale.LC_ALL, 'fr_FR')
+elif platform == "win32":
+    locale.setlocale( locale.LC_ALL, 'French_France.1252')
+
 
 def formatte_nombre(valeur, couleur=None, gras=False):
     """
