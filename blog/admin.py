@@ -29,7 +29,7 @@ from .forms import CasCreationForm, CasChangeForm, CotisationChoiceField
 
 # Défintion du paramètre de localisation des affichages
 if platform == "linux" or platform == "linux2":
-    locale.setlocale(locale.LC_ALL, 'fr_FR')
+    locale.setlocale(locale.LC_ALL, '')
 elif platform == "darwin":
     locale.setlocale(locale.LC_ALL, 'fr_FR')
 elif platform == "win32":
