@@ -1,9 +1,12 @@
+import locale
+
 from django.contrib import admin
 from django.contrib.admin.options import IS_POPUP_VAR
 from django.contrib.auth.admin import UserAdmin
 from django.db import models
 from django.db.models import Count, Sum, F, Q
 from django.forms import CheckboxSelectMultiple
+from django.forms.widgets import TextInput
 from django.contrib.postgres.aggregates import StringAgg
 from django.utils.html import format_html
 from django.urls import resolve
@@ -18,9 +21,22 @@ from .models import (
     NatureBesoin,
     Cas,
     Cotisation,
+    VCotisationNonLiberee,
     AffectationNonLibere,
 )
 from .forms import CasCreationForm, CasChangeForm, CotisationChoiceField
+
+
+locale.setlocale(locale.LC_ALL, 'French_France.1252')  # Réglages des paramètres d'affichage linguistique
+
+def formatte_nombre(valeur, couleur=None, gras=False):
+    """
+    Formatte des valeurs de montant pour un affichage correct dans l'interface
+    """
+    style_couleur = f'color: {couleur};' if couleur else ''
+    style_gras = f'font-weight: bold;' if gras else ''
+    montant = f'{valeur:n}' if valeur is not None else '-'
+    return format_html(f'<div style="{style_gras}{style_couleur}text-align: right;">{montant}</div>')
 
 
 # Utilisateur Providence
@@ -262,6 +278,10 @@ class CasSocialInline(admin.TabularInline):
     show_change_link = True
     verbose_name = 'social'
     verbose_name_plural = 'social'
+    formfield_overrides = {
+        models.DecimalField: {'widget': TextInput(attrs={'class': 'text-right'})},
+    }
+    ordering = ('nom', 'prenoms')
 
     def get_queryset(self, request):
         return super().get_queryset(request)\
@@ -281,7 +301,7 @@ class CasSocialInline(admin.TabularInline):
             cotis_dispo = obj.reunion.cotisations_social() - urgence_social
             sollicite = obj.reunion.sollicite_social() - urgence_social
             estime = obj.montant_sollicite * cotis_dispo // sollicite
-        return estime
+        return formatte_nombre(estime)
     montant_estime.short_description = "Montant estimé"
 
 class CasMissionInline(admin.TabularInline):
@@ -303,6 +323,10 @@ class CasMissionInline(admin.TabularInline):
     show_change_link = True
     verbose_name = 'mission'
     verbose_name_plural = 'mission'
+    formfield_overrides = {
+        models.DecimalField: {'widget': TextInput(attrs={'class': 'text-right'})},
+    }
+    ordering = ('nom', 'prenoms')
 
     def get_queryset(self, request):
         return super().get_queryset(request)\
@@ -324,7 +348,7 @@ class CasMissionInline(admin.TabularInline):
             cotis_dispo = obj.reunion.cotisations_mission() - urgence_mission
             sollicite = obj.reunion.sollicite_mission() - urgence_mission
             estime = obj.montant_sollicite * cotis_dispo // sollicite
-        return estime
+        return formatte_nombre(estime)
     montant_estime.short_description = "Montant estimé"
 
 class CotisationInline(admin.TabularInline):
@@ -333,6 +357,28 @@ class CotisationInline(admin.TabularInline):
     max_num = 0
     can_delete = False
     readonly_fields = ('membre',)
+
+class CotisationNonLibereInline(admin.TabularInline):
+    model = VCotisationNonLiberee
+    fields = ('membre', 'montant_social_fmt', 'social_libere', 'montant_mission_fmt', 'mission_libere',)
+    max_num = 0
+    extra = 0
+    can_delete = False
+    readonly_fields = ('membre', 'montant_social_fmt', 'social_libere', 'montant_mission_fmt', 'mission_libere',)
+
+    def montant_social_fmt(self, obj):
+        return formatte_nombre(obj.montant_social)
+    montant_social_fmt.short_description = "Montant social"
+
+    def montant_mission_fmt(self, obj):
+        return formatte_nombre(obj.montant_mission)
+    montant_mission_fmt.short_description = "Montant mission"
+
+    def has_add_permission(self, request, obj):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False
 
 class AffectationNonLibereInline(admin.TabularInline):
     model = AffectationNonLibere
@@ -381,8 +427,7 @@ class AffectationNonLibereInline(admin.TabularInline):
                 reunion=self.get_parent_object_from_request(request)
             )
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
-    
-    
+
 
 # Réunion
 @admin.register(Reunion)
@@ -392,9 +437,9 @@ class ReunionAdmin(admin.ModelAdmin):
         'nb_cas',
         'total_sollicite',
         'total_soll_social',
-        'sollicite_mission',
-        'cotisations_social',
-        'cotisations_mission',
+        'total_soll_mission',
+        'cotis_social',
+        'cotis_mission',
         'disponible_social',
         'disponible_mission',
     )
@@ -402,21 +447,17 @@ class ReunionAdmin(admin.ModelAdmin):
         ('Réunion', {
             'fields': (
                 ('date_reunion', 'membre_hote', 'lieu_reunion', 'nb_cas',),
-                ('total_soll_social', 'sollicite_mission',),
-                ('cotisations_social', 'cotisations_mission'),
+                ('total_soll_social', 'total_soll_mission',),
+                ('cotis_social', 'cotis_mission'),
                 ('disponible_social', 'disponible_mission',)
             ),
             'classes': (
                 'baton-tabs-init',
                 'baton-tab-inline-cotisations',
-                'baton-tab-inline-affectations',
+                'baton-tab-group-inline-cotisations_nl--inline-affectations',
                 'baton-tab-fs-cr',
             ),
         }),
-        # ('Cotisations', {
-        #     'fields': ('compte_rendu', 'liste_presence'),
-        #     'classes': ('tab-fs-cr',),
-        # }),
         ('Compte-rendu', {
             'fields': ('compte_rendu', 'liste_presence'),
             'classes': ('tab-fs-cr',),
@@ -426,6 +467,7 @@ class ReunionAdmin(admin.ModelAdmin):
         CasSocialInline,
         CasMissionInline,
         CotisationInline,
+        CotisationNonLibereInline,
         AffectationNonLibereInline,
     )
 
@@ -440,24 +482,32 @@ class ReunionAdmin(admin.ModelAdmin):
         return queryset
 
     def nb_cas(self, obj):
-        return obj._nb_cas
+        return formatte_nombre(obj._nb_cas)
     nb_cas.short_description = "Nombre de cas"
     nb_cas.admin_order_field = "_nb_cas"
 
     def total_sollicite(self, obj):
-        return obj._total_sollicite
+        return formatte_nombre(obj._total_sollicite)
     total_sollicite.short_description = "Total sollicité"
     total_sollicite.admin_order_field = "_total_sollicite"
 
     def total_soll_social(self, obj):
-        return obj._total_soll_social
+        return formatte_nombre(obj._total_soll_social)
     total_soll_social.short_description = "Sollicité social"
     total_soll_social.admin_order_field = "_total_soll_social"
 
     def total_soll_mission(self, obj):
-        return obj._total_soll_mission
+        return formatte_nombre(obj._total_soll_mission)
     total_soll_mission.short_description = "Sollicité mission"
     total_soll_mission.admin_order_field = "_total_soll_mission"
+
+    def cotis_social(self, obj):
+        return formatte_nombre(obj.cotisations_social())
+    cotis_social.short_description = "Cotisations social"
+
+    def cotis_mission(self, obj):
+        return formatte_nombre(obj.cotisations_mission())
+    cotis_mission.short_description = "Cotisations mission"
 
     def disponible_social(self, obj):
         affecte = obj.cas_reunion\
@@ -467,11 +517,7 @@ class ReunionAdmin(admin.ModelAdmin):
         alloue = affecte['total'] if affecte['total'] else 0
         disponible = obj.cotisations_social() - obj.total_urgence_social() - alloue
         couleur = 'green' if disponible >= 0 else 'red'
-        return format_html(
-            '<span style="font-weight: bold; color: {};">{}</span>',
-            couleur,
-            disponible
-        )
+        return formatte_nombre(disponible, couleur, gras=True)
     disponible_social.short_description = "Reliquat social"
 
     def disponible_mission(self, obj):
@@ -482,9 +528,8 @@ class ReunionAdmin(admin.ModelAdmin):
         alloue = affecte['total'] if affecte['total'] else 0
         disponible = obj.cotisations_mission() - obj.total_urgence_mission() - alloue
         couleur = 'green' if disponible >= 0 else 'red'
-        return format_html(
-            '<span style="font-weight: bold; color: {};">{}</span>',
-            couleur,
-            disponible
-        )
+        return formatte_nombre(disponible, couleur, gras=True)
     disponible_mission.short_description = "Reliquat mission"
+
+    class Media:
+        css = { "all" : ("admin/css/hide_admin_original.css",) }

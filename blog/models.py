@@ -352,3 +352,38 @@ class AffectationNonLibere(models.Model):
 
     def __str__(self):
         return f"{self.cotisation.membre}"
+
+
+class VCotisationNonLiberee(models.Model):
+    """
+    Cotisation mensuelle non libérée (Vue de base de données)
+    """
+    id = models.IntegerField(primary_key=True, verbose_name="identifiant")
+    membre = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.DO_NOTHING,
+        null=True, blank=True,
+        db_column="membre_id",
+        verbose_name="membre"
+    )
+    reunion = models.ForeignKey(
+        Reunion,
+        on_delete=models.DO_NOTHING,
+        null=True, blank=True,
+        related_name="cotisations_nl",
+        db_column="reunion_id",
+        verbose_name="réunion"
+    )
+    montant_social = models.PositiveIntegerField(null=True, blank=True,)
+    social_libere = models.BooleanField(null=True, blank=True,verbose_name="montant social libéré ?")
+    montant_mission = models.PositiveIntegerField(null=True, blank=True,)
+    mission_libere = models.BooleanField(null=True, blank=True,verbose_name="montant mission libéré ?")
+
+    class Meta:
+        managed = False
+        db_table = "v_cotisation_non_liberee"
+        verbose_name = "cotisation du mois non libérée"
+        verbose_name_plural = "cotisations du mois non libérées"
+
+    def __str__(self):
+        return ""
