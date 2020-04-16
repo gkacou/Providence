@@ -27,19 +27,19 @@ from .models import (
 from .forms import CasCreationForm, CasChangeForm, CotisationChoiceField
 
 
-# Défintion du paramètre de localisation des affichages
-if platform == "linux" or platform == "linux2":
-    locale.setlocale(locale.LC_ALL, 'fr_FR')
-elif platform == "darwin":
-    locale.setlocale(locale.LC_ALL, 'fr_FR')
-elif platform == "win32":
-    locale.setlocale( locale.LC_ALL, 'French_France.1252')
-
 
 def formatte_nombre(valeur, couleur=None, gras=False):
     """
     Formatte des valeurs de montant pour un affichage correct dans l'interface
     """
+    # Défintion du paramètre de localisation des affichages
+    if platform == "linux" or platform == "linux2":
+        locale.setlocale(locale.LC_ALL, 'fr_FR')
+    elif platform == "darwin":
+        locale.setlocale(locale.LC_ALL, 'fr_FR')
+    elif platform == "win32":
+        locale.setlocale( locale.LC_ALL, 'French_France.1252')
+
     style_couleur = f'color: {couleur};' if couleur else ''
     style_gras = f'font-weight: bold;' if gras else ''
     montant = f'{valeur:n}' if valeur is not None else '-'
