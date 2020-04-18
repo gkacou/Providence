@@ -21,10 +21,15 @@ from .models import (
     NatureBesoin,
     Cas,
     Cotisation,
-    VCotisationNonLiberee,
+    VueCotisationNonLiberee,
     AffectationNonLibere,
 )
-from .forms import CasCreationForm, CasChangeForm, CotisationChoiceField
+from .forms import (
+    CasCreationForm,
+    CasChangeForm,
+    CotisationChoiceField,
+    CasChoiceField,
+)
 
 
 
@@ -33,12 +38,13 @@ def formatte_nombre(valeur, couleur=None, gras=False):
     Formatte des valeurs de montant pour un affichage correct dans l'interface
     """
     # Défintion du paramètre de localisation des affichages
-    if platform == "linux" or platform == "linux2":
-        locale.setlocale(locale.LC_ALL, 'fr_FR')
-    elif platform == "darwin":
-        locale.setlocale(locale.LC_ALL, 'fr_FR')
-    elif platform == "win32":
-        locale.setlocale( locale.LC_ALL, 'French_France.1252')
+    if not bool(locale.getlocale()[0]):
+        if platform == "linux" or platform == "linux2":
+            locale.setlocale(locale.LC_ALL, 'fr_FR')
+        elif platform == "darwin":
+            locale.setlocale(locale.LC_ALL, 'fr_FR')
+        elif platform == "win32":
+            locale.setlocale(locale.LC_ALL, 'French_France.1252')
 
     style_couleur = f'color: {couleur};' if couleur else ''
     style_gras = f'font-weight: bold;' if gras else ''
@@ -58,28 +64,60 @@ class ProvMembreAdmin(UserAdmin):
     model = Membre
     list_display = ('last_name', 'first_name', 'telephone1', 'telephone2', 'adresse', 'email')
     list_display_links = ('last_name', 'first_name',)
-    fieldsets = (
-        ('Identification', {'fields': ('username', 'password')}),
-        ('Informations personnelles',
-            {'fields': (
-                ('last_name', 'first_name',),
-                'email',
-                'sexe',
-                'date_naissance',
-                ('telephone1', 'telephone2',),
-                'adresse',
-                'date_adhesion',
-                'communaute',
-                ('activite', 'profession',),
-                ('cotisation_social', 'cotisation_mission',),
-                'personne_physique',
-            )}
-        ),
-    )
+    # fieldsets = (
+    #     ('Identification', {'fields': ('username', 'password')}),
+    #     ('Informations personnelles',
+    #         {'fields': (
+    #             ('last_name', 'first_name',),
+    #             'email',
+    #             'sexe',
+    #             'date_naissance',
+    #             ('telephone1', 'telephone2',),
+    #             'adresse',
+    #             'date_adhesion',
+    #             'communaute',
+    #             ('activite', 'profession',),
+    #             ('cotisation_social', 'cotisation_mission',),
+    #             'personne_physique',
+    #         )}
+    #     ),
+    # )
     radio_fields = {'sexe': admin.HORIZONTAL}
 
     # def get_queryset(self, *args, **kwargs):
-    #     return Membre.objects.filter(is_superuser=False)
+    #     return super().get_queryset(request)
+    def get_queryset(self, request):
+        if request.user.is_superuser:
+            return super().get_queryset(request)
+        return Membre.objects.filter(personne_physique=True)
+
+    def has_change_permission(self, request, obj=None):
+        # Seuls les admins et le membre peuvent modifier sa fiche
+        return True if request.user.is_superuser or request.user == obj else False
+
+    def get_fieldsets(self, request, obj=None):
+        champs = (
+            ('last_name', 'first_name',),
+            'email',
+            'sexe',
+            'date_naissance',
+            ('telephone1', 'telephone2',),
+            'adresse',
+            'date_adhesion',
+            'communaute',
+            ('activite', 'profession',),
+            ('cotisation_social', 'cotisation_mission',),
+        )
+        if request.user.is_superuser:
+            fieldsets = (
+                ('Identification', {'fields': ('username', 'password')}),
+                ('Informations personnelles', {'fields': champs + ('personne_physique',)})
+            )
+        else:
+            fieldsets = (
+                ('Informations personnelles', {'fields': champs}),
+            )
+        return fieldsets
 
 
 # Familles d'églises et églises
@@ -366,12 +404,28 @@ class CotisationInline(admin.TabularInline):
     readonly_fields = ('membre',)
 
 class CotisationNonLibereInline(admin.TabularInline):
-    model = VCotisationNonLiberee
-    fields = ('membre', 'montant_social_fmt', 'social_libere', 'montant_mission_fmt', 'mission_libere',)
+    model = VueCotisationNonLiberee
+    fields = (
+        'membre',
+        'montant_social_fmt',
+        'social_libere',
+        'reste_social_fmt',
+        'montant_mission_fmt',
+        'mission_libere',
+        'reste_mission_fmt',
+    )
     max_num = 0
     extra = 0
     can_delete = False
-    readonly_fields = ('membre', 'montant_social_fmt', 'social_libere', 'montant_mission_fmt', 'mission_libere',)
+    readonly_fields = (
+        'membre',
+        'montant_social_fmt',
+        'social_libere',
+        'reste_social_fmt',
+        'montant_mission_fmt',
+        'mission_libere',
+        'reste_mission_fmt',
+    )
 
     def montant_social_fmt(self, obj):
         return formatte_nombre(obj.montant_social)
@@ -380,6 +434,18 @@ class CotisationNonLibereInline(admin.TabularInline):
     def montant_mission_fmt(self, obj):
         return formatte_nombre(obj.montant_mission)
     montant_mission_fmt.short_description = "Montant mission"
+
+    def reste_social_fmt(self, obj):
+        reste = obj.reste_cotis_social
+        couleur = 'red' if reste and reste < 0 else None
+        return formatte_nombre(reste, couleur, gras=True)
+    reste_social_fmt.short_description = "Reste social"
+
+    def reste_mission_fmt(self, obj):
+        reste = obj.reste_cotis_mission
+        couleur = 'red' if reste and reste < 0 else None
+        return formatte_nombre(reste, couleur, gras=True)
+    reste_mission_fmt.short_description = "Reste mission"
 
     def has_add_permission(self, request, obj):
         return False
@@ -398,8 +464,9 @@ class AffectationNonLibereInline(admin.TabularInline):
         'somme',
         'cas',
         'classification',
+        'montant_alloue',
     )
-    readonly_fields = ('classification',)
+    readonly_fields = ('classification', 'montant_alloue')
 
     def get_queryset(self, request):
         return super().get_queryset(request).select_related('cas')
@@ -407,6 +474,10 @@ class AffectationNonLibereInline(admin.TabularInline):
     def classification(self, obj):
         return obj.cas.get_classification_display()
     # classification.short_description = "Classification"
+
+    def montant_alloue(self, obj):
+        return formatte_nombre(obj.cas.montant_alloue)
+    montant_alloue.short_description = "Montant alloué"
 
     def get_parent_object_from_request(self, request):
         """
@@ -430,9 +501,14 @@ class AffectationNonLibereInline(admin.TabularInline):
             )
         
         if db_field.name == "cas":
-            kwargs["queryset"] = Cas.objects.filter(
-                reunion=self.get_parent_object_from_request(request)
+            return CasChoiceField(
+                queryset=Cas.objects.filter(
+                    reunion=self.get_parent_object_from_request(request)
+                )
             )
+            # kwargs["queryset"] = Cas.objects.filter(
+            #     reunion=self.get_parent_object_from_request(request)
+            # )
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 

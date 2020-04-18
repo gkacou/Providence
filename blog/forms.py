@@ -1,3 +1,5 @@
+import locale
+from sys import platform
 from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
@@ -78,6 +80,33 @@ class AffectationNonLibereForm(ModelForm):
     # def __init__(self, data=None, files=None, auto_id='id_%s', prefix=None, initial=None, error_class=ErrorList, label_suffix=None, empty_permitted=False, instance=None, use_required_attribute=None, renderer=None):
     #     super().__init__(data=data, files=files, auto_id=auto_id, prefix=prefix, initial=initial, error_class=error_class, label_suffix=label_suffix, empty_permitted=empty_permitted, instance=instance, use_required_attribute=use_required_attribute, renderer=renderer)
 
+
 class CotisationChoiceField(forms.ModelChoiceField):
+    """
+    Pour afficher le nom du membre dans la liste déroulante
+    de sélection de la cotisation dans le formulaire d'affectation
+    des montants non libérés
+    """
     def label_from_instance(self, obj):
         return obj.membre
+
+
+class CasChoiceField(forms.ModelChoiceField):
+    """
+    Pour afficher dans la liste déroulante de sélection du cas:
+    - le nom du bénéficiaire
+    - la classification du cas : 'S' ou 'M4
+    - le montant alloué
+    """
+    def label_from_instance(self, obj):
+        # Affecter une localisation si nécessaire
+        if not bool(locale.getlocale()[0]):
+            if platform == "linux" or platform == "linux2":
+                locale.setlocale(locale.LC_ALL, 'fr_FR')
+            elif platform == "darwin":
+                locale.setlocale(locale.LC_ALL, 'fr_FR')
+            elif platform == "win32":
+                locale.setlocale(locale.LC_ALL, 'French_France.1252')
+        montant = f'{obj.montant_alloue:n}'
+        return f'{obj.beneficiaire} ({obj.classification} : {montant})'
+

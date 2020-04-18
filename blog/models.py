@@ -354,7 +354,7 @@ class AffectationNonLibere(models.Model):
         return f"{self.cotisation.membre}"
 
 
-class VCotisationNonLiberee(models.Model):
+class VueCotisationNonLiberee(models.Model):
     """
     Cotisation mensuelle non libérée (Vue de base de données)
     """
@@ -378,6 +378,8 @@ class VCotisationNonLiberee(models.Model):
     social_libere = models.BooleanField(null=True, blank=True,verbose_name="montant social libéré ?")
     montant_mission = models.PositiveIntegerField(null=True, blank=True,)
     mission_libere = models.BooleanField(null=True, blank=True,verbose_name="montant mission libéré ?")
+    reste_cotis_social = models.IntegerField(null=True, blank=True, verbose_name="reste social")
+    reste_cotis_mission = models.IntegerField(null=True, blank=True, verbose_name="reste mission")
 
     class Meta:
         managed = False

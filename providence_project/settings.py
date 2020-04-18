@@ -139,9 +139,33 @@ BATON = {
     'SUPPORT_HREF': '',
     'COPYRIGHT': '', # noqa
     'POWERED_BY': 'Providence',
-    # 'MENU': (
-    #     {}
-    # )
+    'MENU': (
+        {
+            'type':'free',
+            'label': 'Administration',
+            'icon': 'fa fa-lock',
+            'perms': ('auth.change_group',),
+            'children': [
+                {'type': 'model', 'app': 'blog', 'name': 'provuser', 'label': 'Utilisateurs', 'icon': 'fa fa-user',},
+                {'type': 'model', 'app': 'auth', 'name': 'group', 'label': 'Groupes', 'icon': 'fa fa-street-view',},
+            ]
+        },
+        {
+            'type': 'app',
+            'name': 'blog',
+            'label': 'Paramètres',
+            'icon': 'fa fa-cog',
+            'models': (
+                {'name': 'famillecommunaute', 'label': 'Groupe de communautés'},
+                {'name': 'communaute', 'label': 'Communautés'},
+                {'name': 'naturebesoin', 'label': 'Natures de besoins'},
+            )
+        },
+        {'type': 'model', 'app': 'blog', 'name': 'membre', 'label': 'Membres', 'icon': 'fa fa-address-book',},
+        {'type': 'model', 'app': 'blog', 'name': 'reunion', 'label': 'Réunions', 'icon': 'fa fa-users',},
+        {'type': 'model', 'app': 'blog', 'name': 'beneficiaire', 'label': 'Bénéficiaires', 'icon': 'fa fa-user-plus',},
+        {'type': 'model', 'app': 'blog', 'name': 'cas', 'label': 'Cas', 'icon': 'fa fa-heart',},
+    )
 }
 
 # Pour le bon fonctionnement de l'appli à la fois en local et sur Heroku
