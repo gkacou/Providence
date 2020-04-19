@@ -21,10 +21,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = '4@f_b+a$&hxefe6irnl@&&*ud(+-v8*23#fw)ws7(c7=!0o#w#'
+# SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -162,9 +162,9 @@ BATON = {
             )
         },
         {'type': 'model', 'app': 'blog', 'name': 'membre', 'label': 'Membres', 'icon': 'fa fa-address-book',},
-        {'type': 'model', 'app': 'blog', 'name': 'reunion', 'label': 'Réunions', 'icon': 'fa fa-users',},
         {'type': 'model', 'app': 'blog', 'name': 'beneficiaire', 'label': 'Bénéficiaires', 'icon': 'fa fa-user-plus',},
         {'type': 'model', 'app': 'blog', 'name': 'cas', 'label': 'Cas', 'icon': 'fa fa-heart',},
+        {'type': 'model', 'app': 'blog', 'name': 'reunion', 'label': 'Réunions', 'icon': 'fa fa-users',},
     )
 }
 
