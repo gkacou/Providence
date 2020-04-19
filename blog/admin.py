@@ -64,24 +64,6 @@ class ProvMembreAdmin(UserAdmin):
     model = Membre
     list_display = ('last_name', 'first_name', 'telephone1', 'telephone2', 'adresse', 'email')
     list_display_links = ('last_name', 'first_name',)
-    # fieldsets = (
-    #     ('Identification', {'fields': ('username', 'password')}),
-    #     ('Informations personnelles',
-    #         {'fields': (
-    #             ('last_name', 'first_name',),
-    #             'email',
-    #             'sexe',
-    #             'date_naissance',
-    #             ('telephone1', 'telephone2',),
-    #             'adresse',
-    #             'date_adhesion',
-    #             'communaute',
-    #             ('activite', 'profession',),
-    #             ('cotisation_social', 'cotisation_mission',),
-    #             'personne_physique',
-    #         )}
-    #     ),
-    # )
     radio_fields = {'sexe': admin.HORIZONTAL}
 
     # def get_queryset(self, *args, **kwargs):
@@ -111,7 +93,7 @@ class ProvMembreAdmin(UserAdmin):
         if request.user.is_superuser:
             fieldsets = (
                 ('Identification', {'fields': ('username', 'password')}),
-                ('Informations personnelles', {'fields': champs + ('personne_physique',)})
+                ('Informations personnelles', {'fields': champs + ('personne_physique', 'peut_cotiser')})
             )
         else:
             fieldsets = (
@@ -127,7 +109,8 @@ class FamilleCommunauteAdmin(admin.ModelAdmin):
 
 @admin.register(Communaute)
 class CommunauteAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('nom_comunaute', 'famille')
+    list_filter = ('famille',)
 
 
 # Bénéficiaire

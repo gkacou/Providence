@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'baton.autodiscover',
+    'admin_reorder',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'admin_reorder.middleware.ModelAdminReorder',
 ]
 
 ROOT_URLCONF = 'providence_project.urls'
@@ -140,6 +142,21 @@ BATON = {
     'COPYRIGHT': '', # noqa
     'POWERED_BY': 'Providence',
     'MENU': (
+        {'type': 'model', 'app': 'blog', 'name': 'cas', 'label': 'Cas', 'icon': 'fa fa-heart',},
+        {'type': 'model', 'app': 'blog', 'name': 'beneficiaire', 'label': 'Bénéficiaires', 'icon': 'fa fa-user-plus',},
+        {'type': 'model', 'app': 'blog', 'name': 'reunion', 'label': 'Réunions', 'icon': 'fa fa-users',},
+        {'type': 'model', 'app': 'blog', 'name': 'membre', 'label': 'Membres', 'icon': 'fa fa-address-book',},
+        {
+            'type': 'app',
+            'name': 'blog',
+            'label': 'Paramètres',
+            'icon': 'fa fa-cog',
+            'models': (
+                {'name': 'famillecommunaute', 'label': 'Groupe de communautés'},
+                {'name': 'communaute', 'label': 'Communautés chrétiennes'},
+                {'name': 'naturebesoin', 'label': 'Natures de besoins'},
+            )
+        },
         {
             'type':'free',
             'label': 'Administration',
@@ -150,23 +167,30 @@ BATON = {
                 {'type': 'model', 'app': 'auth', 'name': 'group', 'label': 'Groupes', 'icon': 'fa fa-street-view',},
             ]
         },
-        {
-            'type': 'app',
-            'name': 'blog',
-            'label': 'Paramètres',
-            'icon': 'fa fa-cog',
-            'models': (
-                {'name': 'famillecommunaute', 'label': 'Groupe de communautés'},
-                {'name': 'communaute', 'label': 'Communautés'},
-                {'name': 'naturebesoin', 'label': 'Natures de besoins'},
-            )
-        },
-        {'type': 'model', 'app': 'blog', 'name': 'membre', 'label': 'Membres', 'icon': 'fa fa-address-book',},
-        {'type': 'model', 'app': 'blog', 'name': 'beneficiaire', 'label': 'Bénéficiaires', 'icon': 'fa fa-user-plus',},
-        {'type': 'model', 'app': 'blog', 'name': 'cas', 'label': 'Cas', 'icon': 'fa fa-heart',},
-        {'type': 'model', 'app': 'blog', 'name': 'reunion', 'label': 'Réunions', 'icon': 'fa fa-users',},
     )
 }
+
+# Organisation des objets sur la page d'accueil
+ADMIN_REORDER = (
+    # Objets de l'appli
+    {
+        'app': 'blog',
+        'models': ('blog.Cas', 'blog.Beneficiaire', 'blog.Reunion', 'blog.Membre',)
+    },
+
+    # Paramètres
+    {
+        'app': 'blog',
+        'label': 'Paramètres',
+        'models': ('blog.FamilleCommunaute', 'blog.Communaute', 'blog.NatureBesoin',)
+    },
+    # Gestion des utilisateurs et des groupes
+    {
+        'app': 'auth',
+        'label': 'Administration',
+        'models': ('blog.ProvUser', 'auth.Group',)
+    },
+)
 
 # Pour le bon fonctionnement de l'appli à la fois en local et sur Heroku
 django_heroku.settings(locals())

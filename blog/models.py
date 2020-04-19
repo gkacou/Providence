@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from django.db.models import Count, Sum, F, Q
+from django.db.models import Count, Sum, F, Q, Value
+from django.db.models.functions import Concat
 from django.conf import settings
 from django.utils.html import format_html
 
@@ -24,6 +25,7 @@ class FamilleCommunaute(models.Model):
 
     class Meta:
         verbose_name = "groupe de communauté"
+        verbose_name_plural = "groupes de communautés"
         ordering = ("nom",)
 
     def __str__(self):
@@ -39,7 +41,13 @@ class Communaute(models.Model):
 
     class Meta:
         verbose_name = "communauté chrétienne"
-        ordering = ("nom",)
+        verbose_name_plural = "communautés chrétiennes"
+        ordering = ("famille", "nom",)
+
+    def nom_comunaute(self):
+        return f"{self.famille} {self.nom}"
+    nom_comunaute.admin_order_field = Concat('famille', Value(' '), 'nom')
+    nom_comunaute.short_description = "Communauté"
 
     def __str__(self):
         return f"{self.famille} {self.nom}"
@@ -61,6 +69,7 @@ class ProvUser(AbstractUser):
     cotisation_social = models.PositiveIntegerField(blank=True, null=True, verbose_name="montant contribution social")
     cotisation_mission = models.PositiveIntegerField(blank=True, null=True, verbose_name="montant contribution mission")
     personne_physique = models.BooleanField(default=True)
+    peut_cotiser = models.BooleanField(default=True, verbose_name="peut cotiser")
 
     class Meta:
         verbose_name = "utilisateur"
@@ -159,7 +168,7 @@ class Reunion(models.Model):
         super().save(*args, **kwargs)  # Procéder à la sauvegarde
 
         if nouvelle_reunion:
-            for membre_prov in Membre.objects.filter(personne_physique=True):
+            for membre_prov in Membre.objects.filter(peut_cotiser=True):
                 social = membre_prov.cotisation_social if membre_prov.cotisation_social else 0
                 mission = membre_prov.cotisation_mission if membre_prov.cotisation_mission else 0
                 cotis = Cotisation.objects.create(
@@ -222,7 +231,8 @@ class NatureBesoin(models.Model):
     classification = models.CharField(max_length=1, choices=CLASSIFICATION_CAS, verbose_name="classification")
 
     class Meta:
-        verbose_name = "nature de demande"
+        verbose_name = "nature de besoin"
+        verbose_name_plural = "natures de besoins"
         ordering = ('classification', 'libelle',)
 
     def __str__(self):
