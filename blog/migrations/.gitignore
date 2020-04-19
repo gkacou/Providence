@@ -1,4 +1,0 @@
-# Ignorer tous les fichiers du dossier
-*
-# A l'exception du fichier lui-même
-!.gitignore
