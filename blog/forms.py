@@ -102,7 +102,7 @@ class CasChoiceField(forms.ModelChoiceField):
         # Affecter une localisation si nécessaire
         if not bool(locale.getlocale()[0]):
             if platform == "linux" or platform == "linux2":
-                locale.setlocale(locale.LC_ALL, '')
+                locale.setlocale(locale.LC_ALL, 'fr_FR')
             elif platform == "darwin":
                 locale.setlocale(locale.LC_ALL, 'fr_FR')
             elif platform == "win32":

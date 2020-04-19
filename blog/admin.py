@@ -40,7 +40,7 @@ def formatte_nombre(valeur, couleur=None, gras=False):
     # Défintion du paramètre de localisation des affichages
     if not bool(locale.getlocale()[0]):
         if platform == "linux" or platform == "linux2":
-            locale.setlocale(locale.LC_ALL, '')
+            locale.setlocale(locale.LC_ALL, 'fr_FR')
         elif platform == "darwin":
             locale.setlocale(locale.LC_ALL, 'fr_FR')
         elif platform == "win32":
@@ -598,7 +598,9 @@ class ReunionAdmin(admin.ModelAdmin):
             .filter(urgence=False)\
             .aggregate(total=Sum('montant_alloue'))
         alloue = affecte['total'] if affecte['total'] else 0
-        disponible = obj.cotisations_social() - obj.total_urgence_social() - alloue
+        cotis = obj.cotisations_social() if obj.cotisations_social() else 0
+        urgence = obj.total_urgence_social() if obj.total_urgence_social() else 0
+        disponible = cotis - urgence - alloue
         couleur = 'green' if disponible >= 0 else 'red'
         return formatte_nombre(disponible, couleur, gras=True)
     disponible_social.short_description = "Reliquat social"
@@ -609,7 +611,9 @@ class ReunionAdmin(admin.ModelAdmin):
             .filter(urgence=False)\
             .aggregate(total=Sum('montant_alloue'))
         alloue = affecte['total'] if affecte['total'] else 0
-        disponible = obj.cotisations_mission() - obj.total_urgence_mission() - alloue
+        cotis = obj.cotisations_mission() if obj.cotisations_mission() else 0
+        urgence = obj.total_urgence_mission() if obj.total_urgence_mission() else 0
+        disponible = cotis - urgence - alloue
         couleur = 'green' if disponible >= 0 else 'red'
         return formatte_nombre(disponible, couleur, gras=True)
     disponible_mission.short_description = "Reliquat mission"
