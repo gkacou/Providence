@@ -1,0 +1,5371 @@
+[
+    {
+        "model": "blog.famillecommunaute",
+        "pk": 1,
+        "fields": {
+            "nom": "EEAD"
+        }
+    },
+    {
+        "model": "blog.famillecommunaute",
+        "pk": 2,
+        "fields": {
+            "nom": "Réveil"
+        }
+    },
+    {
+        "model": "blog.famillecommunaute",
+        "pk": 3,
+        "fields": {
+            "nom": "EPEM"
+        }
+    },
+    {
+        "model": "blog.famillecommunaute",
+        "pk": 4,
+        "fields": {
+            "nom": "Indépendant"
+        }
+    },
+    {
+        "model": "blog.famillecommunaute",
+        "pk": 5,
+        "fields": {
+            "nom": "AMI"
+        }
+    },
+    {
+        "model": "blog.famillecommunaute",
+        "pk": 6,
+        "fields": {
+            "nom": "FMC"
+        }
+    },
+    {
+        "model": "blog.famillecommunaute",
+        "pk": 7,
+        "fields": {
+            "nom": "Mission"
+        }
+    },
+    {
+        "model": "blog.communaute",
+        "pk": 1,
+        "fields": {
+            "famille": 1,
+            "nom": "Cocody Centre"
+        }
+    },
+    {
+        "model": "blog.communaute",
+        "pk": 2,
+        "fields": {
+            "famille": 1,
+            "nom": "Plateau Dokui"
+        }
+    },
+    {
+        "model": "blog.communaute",
+        "pk": 3,
+        "fields": {
+            "famille": 3,
+            "nom": "II Plateaux"
+        }
+    },
+    {
+        "model": "blog.communaute",
+        "pk": 4,
+        "fields": {
+            "famille": 6,
+            "nom": "Bakopla"
+        }
+    },
+    {
+        "model": "blog.communaute",
+        "pk": 5,
+        "fields": {
+            "famille": 6,
+            "nom": "Badiokaha"
+        }
+    },
+    {
+        "model": "blog.beneficiaire",
+        "pk": 1,
+        "fields": {
+            "nom": "GUETI",
+            "prenoms": "Adolphe",
+            "sexe": "M",
+            "communaute": 1,
+            "situation_matrimoniale": "C",
+            "profession": "Communicateur",
+            "fonction": null,
+            "nb_enfants": 0,
+            "anciennete_foi": 5
+        }
+    },
+    {
+        "model": "blog.beneficiaire",
+        "pk": 2,
+        "fields": {
+            "nom": "Essai",
+            "prenoms": "Test",
+            "sexe": "M",
+            "communaute": 3,
+            "situation_matrimoniale": "C",
+            "profession": "Sans",
+            "fonction": null,
+            "nb_enfants": 2,
+            "anciennete_foi": 5
+        }
+    },
+    {
+        "model": "blog.beneficiaire",
+        "pk": 3,
+        "fields": {
+            "nom": "PROBLEME",
+            "prenoms": "Sérieux",
+            "sexe": "N",
+            "communaute": 2,
+            "situation_matrimoniale": "C",
+            "profession": "Sans",
+            "fonction": "Sans",
+            "nb_enfants": 25,
+            "anciennete_foi": 1
+        }
+    },
+    {
+        "model": "blog.beneficiaire",
+        "pk": 4,
+        "fields": {
+            "nom": "OUATTARA",
+            "prenoms": "Félix",
+            "sexe": "M",
+            "communaute": 4,
+            "situation_matrimoniale": "M",
+            "profession": "Missionnaire",
+            "fonction": null,
+            "nb_enfants": 2,
+            "anciennete_foi": 10
+        }
+    },
+    {
+        "model": "blog.beneficiaire",
+        "pk": 5,
+        "fields": {
+            "nom": "DAH",
+            "prenoms": "Koffi",
+            "sexe": "M",
+            "communaute": 5,
+            "situation_matrimoniale": "M",
+            "profession": "Missionnaire",
+            "fonction": null,
+            "nb_enfants": 3,
+            "anciennete_foi": 15
+        }
+    },
+    {
+        "model": "blog.beneficiaire",
+        "pk": 6,
+        "fields": {
+            "nom": "GUEHI",
+            "prenoms": "Thierry",
+            "sexe": "M",
+            "communaute": 1,
+            "situation_matrimoniale": "M",
+            "profession": "Maçon",
+            "fonction": null,
+            "nb_enfants": 3,
+            "anciennete_foi": 10
+        }
+    },
+    {
+        "model": "blog.beneficiaire",
+        "pk": 7,
+        "fields": {
+            "nom": "KOUE",
+            "prenoms": "Evelyne",
+            "sexe": "F",
+            "communaute": 1,
+            "situation_matrimoniale": "M",
+            "profession": "Commerciale",
+            "fonction": null,
+            "nb_enfants": 2,
+            "anciennete_foi": 3
+        }
+    },
+    {
+        "model": "blog.beneficiaire",
+        "pk": 8,
+        "fields": {
+            "nom": "MISSIONNAIRE",
+            "prenoms": "Dévouée",
+            "sexe": "F",
+            "communaute": 4,
+            "situation_matrimoniale": "C",
+            "profession": "Missionnaire",
+            "fonction": null,
+            "nb_enfants": 0,
+            "anciennete_foi": 20
+        }
+    },
+    {
+        "model": "blog.naturebesoin",
+        "pk": 1,
+        "fields": {
+            "libelle": "Santé",
+            "classification": "S"
+        }
+    },
+    {
+        "model": "blog.naturebesoin",
+        "pk": 2,
+        "fields": {
+            "libelle": "Subsistance",
+            "classification": "S"
+        }
+    },
+    {
+        "model": "blog.naturebesoin",
+        "pk": 3,
+        "fields": {
+            "libelle": "Scolarité",
+            "classification": "S"
+        }
+    },
+    {
+        "model": "blog.naturebesoin",
+        "pk": 4,
+        "fields": {
+            "libelle": "Entreprise",
+            "classification": "S"
+        }
+    },
+    {
+        "model": "blog.naturebesoin",
+        "pk": 5,
+        "fields": {
+            "libelle": "Evangélisation",
+            "classification": "M"
+        }
+    },
+    {
+        "model": "blog.naturebesoin",
+        "pk": 6,
+        "fields": {
+            "libelle": "Construction",
+            "classification": "M"
+        }
+    },
+    {
+        "model": "blog.naturebesoin",
+        "pk": 7,
+        "fields": {
+            "libelle": "Soutien missionnaire",
+            "classification": "M"
+        }
+    },
+    {
+        "model": "blog.naturebesoin",
+        "pk": 8,
+        "fields": {
+            "libelle": "Implantation",
+            "classification": "M"
+        }
+    },
+    {
+        "model": "blog.naturebesoin",
+        "pk": 9,
+        "fields": {
+            "libelle": "Achat d'équipement",
+            "classification": "M"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 1,
+        "fields": {
+            "app_label": "admin",
+            "model": "logentry"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 2,
+        "fields": {
+            "app_label": "auth",
+            "model": "permission"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 3,
+        "fields": {
+            "app_label": "auth",
+            "model": "group"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 4,
+        "fields": {
+            "app_label": "contenttypes",
+            "model": "contenttype"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 5,
+        "fields": {
+            "app_label": "sessions",
+            "model": "session"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 6,
+        "fields": {
+            "app_label": "blog",
+            "model": "provuser"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 7,
+        "fields": {
+            "app_label": "blog",
+            "model": "beneficiaire"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 8,
+        "fields": {
+            "app_label": "blog",
+            "model": "famillecommunaute"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 9,
+        "fields": {
+            "app_label": "blog",
+            "model": "naturebesoin"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 10,
+        "fields": {
+            "app_label": "blog",
+            "model": "reunion"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 11,
+        "fields": {
+            "app_label": "blog",
+            "model": "cotisation"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 12,
+        "fields": {
+            "app_label": "blog",
+            "model": "communaute"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 13,
+        "fields": {
+            "app_label": "blog",
+            "model": "cas"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 14,
+        "fields": {
+            "app_label": "blog",
+            "model": "membre"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 15,
+        "fields": {
+            "app_label": "blog",
+            "model": "affectationnonlibere"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 16,
+        "fields": {
+            "app_label": "blog",
+            "model": "vcotisationnonliberee"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 17,
+        "fields": {
+            "app_label": "blog",
+            "model": "vuecotisationnonliberee"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "4c61c7osk0b1obcii3la6vm5ly0xddks",
+        "fields": {
+            "session_data": "YTA1ODc2OWExYTZlYjNiMDcwM2ZjMGIxYzBiODY3ZDMxYmZkYWE2MDp7Il9hdXRoX3VzZXJfaWQiOiI2IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI3MWY1ZWZhMDlmOTM1OGNjZGM2YzhhOGZmZTVhOWZhMDkzYzRiNzc5In0=",
+            "expire_date": "2020-04-29T17:36:13.395Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "hj5oengyj4x1f8rr5zwuzbaw7gwui2uh",
+        "fields": {
+            "session_data": "OWRhNzBmNzRmNzBjZWU3MjM5ZDFlYWY2Y2ZlNjk5NzNkNTU1YmIxOTp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIyYjQ0MGRjYmRjN2I1Y2RmMjc4NmM0YTVkMWY5MTM0YmM0ODkxOWI3In0=",
+            "expire_date": "2020-05-03T22:08:23.712Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "uvd8hben5kpp1z82y6b3jfksipjmc9eq",
+        "fields": {
+            "session_data": "YTA1ODc2OWExYTZlYjNiMDcwM2ZjMGIxYzBiODY3ZDMxYmZkYWE2MDp7Il9hdXRoX3VzZXJfaWQiOiI2IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI3MWY1ZWZhMDlmOTM1OGNjZGM2YzhhOGZmZTVhOWZhMDkzYzRiNzc5In0=",
+            "expire_date": "2020-05-03T17:21:19.648Z"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 1,
+        "fields": {
+            "name": "Can add log entry",
+            "content_type": [
+                "admin",
+                "logentry"
+            ],
+            "codename": "add_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 2,
+        "fields": {
+            "name": "Can change log entry",
+            "content_type": [
+                "admin",
+                "logentry"
+            ],
+            "codename": "change_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 3,
+        "fields": {
+            "name": "Can delete log entry",
+            "content_type": [
+                "admin",
+                "logentry"
+            ],
+            "codename": "delete_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 4,
+        "fields": {
+            "name": "Can view log entry",
+            "content_type": [
+                "admin",
+                "logentry"
+            ],
+            "codename": "view_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 5,
+        "fields": {
+            "name": "Can add permission",
+            "content_type": [
+                "auth",
+                "permission"
+            ],
+            "codename": "add_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 6,
+        "fields": {
+            "name": "Can change permission",
+            "content_type": [
+                "auth",
+                "permission"
+            ],
+            "codename": "change_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 7,
+        "fields": {
+            "name": "Can delete permission",
+            "content_type": [
+                "auth",
+                "permission"
+            ],
+            "codename": "delete_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 8,
+        "fields": {
+            "name": "Can view permission",
+            "content_type": [
+                "auth",
+                "permission"
+            ],
+            "codename": "view_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 9,
+        "fields": {
+            "name": "Can add group",
+            "content_type": [
+                "auth",
+                "group"
+            ],
+            "codename": "add_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 10,
+        "fields": {
+            "name": "Can change group",
+            "content_type": [
+                "auth",
+                "group"
+            ],
+            "codename": "change_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 11,
+        "fields": {
+            "name": "Can delete group",
+            "content_type": [
+                "auth",
+                "group"
+            ],
+            "codename": "delete_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 12,
+        "fields": {
+            "name": "Can view group",
+            "content_type": [
+                "auth",
+                "group"
+            ],
+            "codename": "view_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 13,
+        "fields": {
+            "name": "Can add content type",
+            "content_type": [
+                "contenttypes",
+                "contenttype"
+            ],
+            "codename": "add_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 14,
+        "fields": {
+            "name": "Can change content type",
+            "content_type": [
+                "contenttypes",
+                "contenttype"
+            ],
+            "codename": "change_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 15,
+        "fields": {
+            "name": "Can delete content type",
+            "content_type": [
+                "contenttypes",
+                "contenttype"
+            ],
+            "codename": "delete_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 16,
+        "fields": {
+            "name": "Can view content type",
+            "content_type": [
+                "contenttypes",
+                "contenttype"
+            ],
+            "codename": "view_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 17,
+        "fields": {
+            "name": "Can add session",
+            "content_type": [
+                "sessions",
+                "session"
+            ],
+            "codename": "add_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 18,
+        "fields": {
+            "name": "Can change session",
+            "content_type": [
+                "sessions",
+                "session"
+            ],
+            "codename": "change_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 19,
+        "fields": {
+            "name": "Can delete session",
+            "content_type": [
+                "sessions",
+                "session"
+            ],
+            "codename": "delete_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 20,
+        "fields": {
+            "name": "Can view session",
+            "content_type": [
+                "sessions",
+                "session"
+            ],
+            "codename": "view_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 21,
+        "fields": {
+            "name": "Can add utilisateur",
+            "content_type": [
+                "blog",
+                "provuser"
+            ],
+            "codename": "add_provuser"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 22,
+        "fields": {
+            "name": "Can change utilisateur",
+            "content_type": [
+                "blog",
+                "provuser"
+            ],
+            "codename": "change_provuser"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 23,
+        "fields": {
+            "name": "Can delete utilisateur",
+            "content_type": [
+                "blog",
+                "provuser"
+            ],
+            "codename": "delete_provuser"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 24,
+        "fields": {
+            "name": "Can view utilisateur",
+            "content_type": [
+                "blog",
+                "provuser"
+            ],
+            "codename": "view_provuser"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 25,
+        "fields": {
+            "name": "Can add bénéficiaire",
+            "content_type": [
+                "blog",
+                "beneficiaire"
+            ],
+            "codename": "add_beneficiaire"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 26,
+        "fields": {
+            "name": "Can change bénéficiaire",
+            "content_type": [
+                "blog",
+                "beneficiaire"
+            ],
+            "codename": "change_beneficiaire"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 27,
+        "fields": {
+            "name": "Can delete bénéficiaire",
+            "content_type": [
+                "blog",
+                "beneficiaire"
+            ],
+            "codename": "delete_beneficiaire"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 28,
+        "fields": {
+            "name": "Can view bénéficiaire",
+            "content_type": [
+                "blog",
+                "beneficiaire"
+            ],
+            "codename": "view_beneficiaire"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 29,
+        "fields": {
+            "name": "Can add groupe de communauté",
+            "content_type": [
+                "blog",
+                "famillecommunaute"
+            ],
+            "codename": "add_famillecommunaute"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 30,
+        "fields": {
+            "name": "Can change groupe de communauté",
+            "content_type": [
+                "blog",
+                "famillecommunaute"
+            ],
+            "codename": "change_famillecommunaute"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 31,
+        "fields": {
+            "name": "Can delete groupe de communauté",
+            "content_type": [
+                "blog",
+                "famillecommunaute"
+            ],
+            "codename": "delete_famillecommunaute"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 32,
+        "fields": {
+            "name": "Can view groupe de communauté",
+            "content_type": [
+                "blog",
+                "famillecommunaute"
+            ],
+            "codename": "view_famillecommunaute"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 33,
+        "fields": {
+            "name": "Can add nature de demande",
+            "content_type": [
+                "blog",
+                "naturebesoin"
+            ],
+            "codename": "add_naturebesoin"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 34,
+        "fields": {
+            "name": "Can change nature de demande",
+            "content_type": [
+                "blog",
+                "naturebesoin"
+            ],
+            "codename": "change_naturebesoin"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 35,
+        "fields": {
+            "name": "Can delete nature de demande",
+            "content_type": [
+                "blog",
+                "naturebesoin"
+            ],
+            "codename": "delete_naturebesoin"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 36,
+        "fields": {
+            "name": "Can view nature de demande",
+            "content_type": [
+                "blog",
+                "naturebesoin"
+            ],
+            "codename": "view_naturebesoin"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 37,
+        "fields": {
+            "name": "Can add réunion",
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "codename": "add_reunion"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 38,
+        "fields": {
+            "name": "Can change réunion",
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "codename": "change_reunion"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 39,
+        "fields": {
+            "name": "Can delete réunion",
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "codename": "delete_reunion"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 40,
+        "fields": {
+            "name": "Can view réunion",
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "codename": "view_reunion"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 41,
+        "fields": {
+            "name": "Can add cotisation mensuelle",
+            "content_type": [
+                "blog",
+                "cotisation"
+            ],
+            "codename": "add_cotisation"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 42,
+        "fields": {
+            "name": "Can change cotisation mensuelle",
+            "content_type": [
+                "blog",
+                "cotisation"
+            ],
+            "codename": "change_cotisation"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 43,
+        "fields": {
+            "name": "Can delete cotisation mensuelle",
+            "content_type": [
+                "blog",
+                "cotisation"
+            ],
+            "codename": "delete_cotisation"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 44,
+        "fields": {
+            "name": "Can view cotisation mensuelle",
+            "content_type": [
+                "blog",
+                "cotisation"
+            ],
+            "codename": "view_cotisation"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 45,
+        "fields": {
+            "name": "Can add communauté chrétienne",
+            "content_type": [
+                "blog",
+                "communaute"
+            ],
+            "codename": "add_communaute"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 46,
+        "fields": {
+            "name": "Can change communauté chrétienne",
+            "content_type": [
+                "blog",
+                "communaute"
+            ],
+            "codename": "change_communaute"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 47,
+        "fields": {
+            "name": "Can delete communauté chrétienne",
+            "content_type": [
+                "blog",
+                "communaute"
+            ],
+            "codename": "delete_communaute"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 48,
+        "fields": {
+            "name": "Can view communauté chrétienne",
+            "content_type": [
+                "blog",
+                "communaute"
+            ],
+            "codename": "view_communaute"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 49,
+        "fields": {
+            "name": "Can add cas",
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "codename": "add_cas"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 50,
+        "fields": {
+            "name": "Can change cas",
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "codename": "change_cas"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 51,
+        "fields": {
+            "name": "Can delete cas",
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "codename": "delete_cas"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 52,
+        "fields": {
+            "name": "Can view cas",
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "codename": "view_cas"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 53,
+        "fields": {
+            "name": "Can add membre",
+            "content_type": [
+                "blog",
+                "membre"
+            ],
+            "codename": "add_membre"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 54,
+        "fields": {
+            "name": "Can change membre",
+            "content_type": [
+                "blog",
+                "membre"
+            ],
+            "codename": "change_membre"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 55,
+        "fields": {
+            "name": "Can delete membre",
+            "content_type": [
+                "blog",
+                "membre"
+            ],
+            "codename": "delete_membre"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 56,
+        "fields": {
+            "name": "Can view membre",
+            "content_type": [
+                "blog",
+                "membre"
+            ],
+            "codename": "view_membre"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 57,
+        "fields": {
+            "name": "Can add affectation cotisation non libérée",
+            "content_type": [
+                "blog",
+                "affectationnonlibere"
+            ],
+            "codename": "add_affectationnonlibere"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 58,
+        "fields": {
+            "name": "Can change affectation cotisation non libérée",
+            "content_type": [
+                "blog",
+                "affectationnonlibere"
+            ],
+            "codename": "change_affectationnonlibere"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 59,
+        "fields": {
+            "name": "Can delete affectation cotisation non libérée",
+            "content_type": [
+                "blog",
+                "affectationnonlibere"
+            ],
+            "codename": "delete_affectationnonlibere"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 60,
+        "fields": {
+            "name": "Can view affectation cotisation non libérée",
+            "content_type": [
+                "blog",
+                "affectationnonlibere"
+            ],
+            "codename": "view_affectationnonlibere"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 61,
+        "fields": {
+            "name": "Can add cotisation du mois non libérée",
+            "content_type": [
+                "blog",
+                "vcotisationnonliberee"
+            ],
+            "codename": "add_vcotisationnonliberee"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 62,
+        "fields": {
+            "name": "Can change cotisation du mois non libérée",
+            "content_type": [
+                "blog",
+                "vcotisationnonliberee"
+            ],
+            "codename": "change_vcotisationnonliberee"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 63,
+        "fields": {
+            "name": "Can delete cotisation du mois non libérée",
+            "content_type": [
+                "blog",
+                "vcotisationnonliberee"
+            ],
+            "codename": "delete_vcotisationnonliberee"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 64,
+        "fields": {
+            "name": "Can view cotisation du mois non libérée",
+            "content_type": [
+                "blog",
+                "vcotisationnonliberee"
+            ],
+            "codename": "view_vcotisationnonliberee"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 65,
+        "fields": {
+            "name": "Can add cotisation du mois non libérée",
+            "content_type": [
+                "blog",
+                "vuecotisationnonliberee"
+            ],
+            "codename": "add_vuecotisationnonliberee"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 66,
+        "fields": {
+            "name": "Can change cotisation du mois non libérée",
+            "content_type": [
+                "blog",
+                "vuecotisationnonliberee"
+            ],
+            "codename": "change_vuecotisationnonliberee"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 67,
+        "fields": {
+            "name": "Can delete cotisation du mois non libérée",
+            "content_type": [
+                "blog",
+                "vuecotisationnonliberee"
+            ],
+            "codename": "delete_vuecotisationnonliberee"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 68,
+        "fields": {
+            "name": "Can view cotisation du mois non libérée",
+            "content_type": [
+                "blog",
+                "vuecotisationnonliberee"
+            ],
+            "codename": "view_vuecotisationnonliberee"
+        }
+    },
+    {
+        "model": "auth.group",
+        "pk": 1,
+        "fields": {
+            "name": "Membres",
+            "permissions": [
+                [
+                    "view_affectationnonlibere",
+                    "blog",
+                    "affectationnonlibere"
+                ],
+                [
+                    "add_beneficiaire",
+                    "blog",
+                    "beneficiaire"
+                ],
+                [
+                    "change_beneficiaire",
+                    "blog",
+                    "beneficiaire"
+                ],
+                [
+                    "delete_beneficiaire",
+                    "blog",
+                    "beneficiaire"
+                ],
+                [
+                    "view_beneficiaire",
+                    "blog",
+                    "beneficiaire"
+                ],
+                [
+                    "add_cas",
+                    "blog",
+                    "cas"
+                ],
+                [
+                    "change_cas",
+                    "blog",
+                    "cas"
+                ],
+                [
+                    "delete_cas",
+                    "blog",
+                    "cas"
+                ],
+                [
+                    "view_cas",
+                    "blog",
+                    "cas"
+                ],
+                [
+                    "add_communaute",
+                    "blog",
+                    "communaute"
+                ],
+                [
+                    "change_communaute",
+                    "blog",
+                    "communaute"
+                ],
+                [
+                    "delete_communaute",
+                    "blog",
+                    "communaute"
+                ],
+                [
+                    "view_communaute",
+                    "blog",
+                    "communaute"
+                ],
+                [
+                    "add_famillecommunaute",
+                    "blog",
+                    "famillecommunaute"
+                ],
+                [
+                    "change_famillecommunaute",
+                    "blog",
+                    "famillecommunaute"
+                ],
+                [
+                    "delete_famillecommunaute",
+                    "blog",
+                    "famillecommunaute"
+                ],
+                [
+                    "view_famillecommunaute",
+                    "blog",
+                    "famillecommunaute"
+                ],
+                [
+                    "change_membre",
+                    "blog",
+                    "membre"
+                ],
+                [
+                    "view_membre",
+                    "blog",
+                    "membre"
+                ],
+                [
+                    "add_naturebesoin",
+                    "blog",
+                    "naturebesoin"
+                ],
+                [
+                    "change_naturebesoin",
+                    "blog",
+                    "naturebesoin"
+                ],
+                [
+                    "delete_naturebesoin",
+                    "blog",
+                    "naturebesoin"
+                ],
+                [
+                    "view_naturebesoin",
+                    "blog",
+                    "naturebesoin"
+                ],
+                [
+                    "view_reunion",
+                    "blog",
+                    "reunion"
+                ]
+            ]
+        }
+    },
+    {
+        "model": "auth.group",
+        "pk": 2,
+        "fields": {
+            "name": "Trésorerie",
+            "permissions": [
+                [
+                    "add_affectationnonlibere",
+                    "blog",
+                    "affectationnonlibere"
+                ],
+                [
+                    "change_affectationnonlibere",
+                    "blog",
+                    "affectationnonlibere"
+                ],
+                [
+                    "delete_affectationnonlibere",
+                    "blog",
+                    "affectationnonlibere"
+                ],
+                [
+                    "view_affectationnonlibere",
+                    "blog",
+                    "affectationnonlibere"
+                ],
+                [
+                    "add_cotisation",
+                    "blog",
+                    "cotisation"
+                ],
+                [
+                    "change_cotisation",
+                    "blog",
+                    "cotisation"
+                ],
+                [
+                    "delete_cotisation",
+                    "blog",
+                    "cotisation"
+                ],
+                [
+                    "view_cotisation",
+                    "blog",
+                    "cotisation"
+                ],
+                [
+                    "view_vcotisationnonliberee",
+                    "blog",
+                    "vcotisationnonliberee"
+                ]
+            ]
+        }
+    },
+    {
+        "model": "blog.provuser",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$150000$7xXTqdiWqC6x$gZTTwueGV68A3hA8T5qr38BooloYFO5T9SiA10AnDps=",
+            "last_login": "2020-04-05T16:26:03.553Z",
+            "is_superuser": true,
+            "username": "admin",
+            "first_name": "Administrateur",
+            "last_name": "Providence",
+            "email": "georges.kacou@outlook.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2020-03-29T00:56:58Z",
+            "sexe": "N",
+            "date_naissance": null,
+            "telephone1": "07552725",
+            "telephone2": "",
+            "adresse": "",
+            "date_adhesion": null,
+            "communaute": null,
+            "activite": "",
+            "profession": "",
+            "cotisation_social": null,
+            "cotisation_mission": null,
+            "personne_physique": false,
+            "peut_cotiser": false,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "blog.provuser",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$150000$T5vA7l2nWO19$jUHPnMvua6AdcGrqGuM6yTFVIJir7x6HbK/VUdak+WI=",
+            "last_login": "2020-04-19T22:08:23.709Z",
+            "is_superuser": true,
+            "username": "georges",
+            "first_name": "Georges",
+            "last_name": "KACOU",
+            "email": "georges.kacou@outlook.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2020-03-29T17:44:21Z",
+            "sexe": "M",
+            "date_naissance": "1971-04-03",
+            "telephone1": "07 55 27 25",
+            "telephone2": "01 05 48 35",
+            "adresse": "Lauriers 6B - Riviéra Bonoumin",
+            "date_adhesion": null,
+            "communaute": 1,
+            "activite": "Informatique",
+            "profession": "Chef d'entreprise",
+            "cotisation_social": 20000,
+            "cotisation_mission": 10000,
+            "personne_physique": true,
+            "peut_cotiser": true,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "blog.provuser",
+        "pk": 3,
+        "fields": {
+            "password": "pbkdf2_sha256$150000$5SdXB4tt92vP$6r0p3zNSBbFtTo13XEG4B5DiCzwPSlJGXw61s/0cXzE=",
+            "last_login": "2020-04-19T18:43:07.928Z",
+            "is_superuser": false,
+            "username": "laurent",
+            "first_name": "Koudou Laurent et Aline",
+            "last_name": "GNOKO",
+            "email": "koudou_l@yahoo.fr",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2020-03-29T17:48:03Z",
+            "sexe": "M",
+            "date_naissance": null,
+            "telephone1": "48 12 11 18",
+            "telephone2": "",
+            "adresse": "Plateau Dokui",
+            "date_adhesion": null,
+            "communaute": 2,
+            "activite": "Enseignement",
+            "profession": "Professeur de musique",
+            "cotisation_social": null,
+            "cotisation_mission": null,
+            "personne_physique": true,
+            "peut_cotiser": true,
+            "groups": [
+                [
+                    "Membres"
+                ]
+            ],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "blog.provuser",
+        "pk": 4,
+        "fields": {
+            "password": "pbkdf2_sha256$150000$vlfwgUjp000c$YELWwpQUHt69F04ljyB08IJwERHfv8sQYFYLP0eZrWA=",
+            "last_login": "2020-04-05T20:10:58.414Z",
+            "is_superuser": false,
+            "username": "blaise",
+            "first_name": "Blaise",
+            "last_name": "AGRE",
+            "email": "pascalagre2002@yahoo.fr",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2020-03-29T17:48:57Z",
+            "sexe": "M",
+            "date_naissance": null,
+            "telephone1": "58 98 13 16",
+            "telephone2": "",
+            "adresse": "",
+            "date_adhesion": null,
+            "communaute": 3,
+            "activite": "Défense",
+            "profession": "Intendant",
+            "cotisation_social": 15000,
+            "cotisation_mission": 5000,
+            "personne_physique": true,
+            "peut_cotiser": true,
+            "groups": [
+                [
+                    "Membres"
+                ]
+            ],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "blog.provuser",
+        "pk": 5,
+        "fields": {
+            "password": "pbkdf2_sha256$150000$TuJxM65FRaDY$ruqOXfrZm9uJksGQxKEoknqE5y9E8uDbwJvt70+JjBY=",
+            "last_login": "2020-04-07T23:28:33.546Z",
+            "is_superuser": false,
+            "username": "stephane",
+            "first_name": "Stéphane",
+            "last_name": "LEGRE",
+            "email": "stephane.legre@outlook.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2020-03-29T18:44:25Z",
+            "sexe": "M",
+            "date_naissance": null,
+            "telephone1": "07 57 69 49",
+            "telephone2": "01 23 55 55",
+            "adresse": "Riviéra II",
+            "date_adhesion": null,
+            "communaute": 3,
+            "activite": "Informatique",
+            "profession": "Chef d'entreprise",
+            "cotisation_social": null,
+            "cotisation_mission": null,
+            "personne_physique": true,
+            "peut_cotiser": true,
+            "groups": [
+                [
+                    "Membres"
+                ]
+            ],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "blog.provuser",
+        "pk": 6,
+        "fields": {
+            "password": "pbkdf2_sha256$150000$47K0uimufL7h$VSKCO3Vmqj7R2AIDM6+2TGKxkl1cr0zt3BExhkBm1b0=",
+            "last_login": "2020-04-19T17:21:19.643Z",
+            "is_superuser": false,
+            "username": "naomi",
+            "first_name": "Naomi",
+            "last_name": "KACOU",
+            "email": "naomi.kacou@gmail.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2020-04-05T21:08:32Z",
+            "sexe": "F",
+            "date_naissance": null,
+            "telephone1": "78112146",
+            "telephone2": "",
+            "adresse": "",
+            "date_adhesion": null,
+            "communaute": 1,
+            "activite": "",
+            "profession": "",
+            "cotisation_social": 20000,
+            "cotisation_mission": 10000,
+            "personne_physique": true,
+            "peut_cotiser": true,
+            "groups": [
+                [
+                    "Membres"
+                ],
+                [
+                    "Trésorerie"
+                ]
+            ],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "blog.provuser",
+        "pk": 7,
+        "fields": {
+            "password": "pbkdf2_sha256$150000$r2JGd9pRogu2$o/70FTd5wLgneSDXsv6QURDL8uoLyGZoU3Z7H/XIV8k=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "caisse",
+            "first_name": "Caisse / Don",
+            "last_name": "Providence",
+            "email": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2020-04-19T19:49:42Z",
+            "sexe": "N",
+            "date_naissance": null,
+            "telephone1": "07552725",
+            "telephone2": "",
+            "adresse": "",
+            "date_adhesion": null,
+            "communaute": null,
+            "activite": "",
+            "profession": "",
+            "cotisation_social": 0,
+            "cotisation_mission": 0,
+            "personne_physique": false,
+            "peut_cotiser": true,
+            "groups": [
+                [
+                    "Membres"
+                ]
+            ],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "blog.reunion",
+        "pk": 7,
+        "fields": {
+            "membre_hote": [
+                "georges"
+            ],
+            "date_reunion": "2019-04-09",
+            "lieu_reunion": "Riviéra Bonoumin",
+            "compte_rendu": "",
+            "liste_presence": []
+        }
+    },
+    {
+        "model": "blog.reunion",
+        "pk": 8,
+        "fields": {
+            "membre_hote": [
+                "laurent"
+            ],
+            "date_reunion": "2020-04-12",
+            "lieu_reunion": "Plateau Dokui",
+            "compte_rendu": "RAS",
+            "liste_presence": [
+                [
+                    "blaise"
+                ],
+                [
+                    "georges"
+                ],
+                [
+                    "laurent"
+                ],
+                [
+                    "naomi"
+                ],
+                [
+                    "stephane"
+                ]
+            ]
+        }
+    },
+    {
+        "model": "blog.reunion",
+        "pk": 9,
+        "fields": {
+            "membre_hote": [
+                "blaise"
+            ],
+            "date_reunion": "2019-12-15",
+            "lieu_reunion": "Route de Bingerville",
+            "compte_rendu": "",
+            "liste_presence": []
+        }
+    },
+    {
+        "model": "blog.cas",
+        "pk": 5,
+        "fields": {
+            "nom": "GUETI",
+            "prenoms": "Adolphe",
+            "sexe": "M",
+            "communaute": 1,
+            "situation_matrimoniale": "C",
+            "profession": "Communicateur",
+            "fonction": null,
+            "nb_enfants": 0,
+            "anciennete_foi": 5,
+            "soumis_par": [
+                "georges"
+            ],
+            "reunion": 8,
+            "beneficiaire": 1,
+            "montant_sollicite": 30000,
+            "montant_alloue": 15000,
+            "sollicitation_externe": null,
+            "classification": "S",
+            "urgence": false,
+            "description": "",
+            "suivi": "O",
+            "don_remis": null,
+            "compte_rendu": "",
+            "nature": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "blog.cas",
+        "pk": 6,
+        "fields": {
+            "nom": "PROBLEME",
+            "prenoms": "Sérieux",
+            "sexe": "N",
+            "communaute": 2,
+            "situation_matrimoniale": "C",
+            "profession": "Sans",
+            "fonction": "Sans",
+            "nb_enfants": 25,
+            "anciennete_foi": 1,
+            "soumis_par": [
+                "laurent"
+            ],
+            "reunion": 8,
+            "beneficiaire": 3,
+            "montant_sollicite": 50000,
+            "montant_alloue": 50000,
+            "sollicitation_externe": null,
+            "classification": "S",
+            "urgence": true,
+            "description": "",
+            "suivi": "O",
+            "don_remis": null,
+            "compte_rendu": "",
+            "nature": [
+                1,
+                3,
+                2
+            ]
+        }
+    },
+    {
+        "model": "blog.cas",
+        "pk": 7,
+        "fields": {
+            "nom": "OUATTARA",
+            "prenoms": "Félix",
+            "sexe": "M",
+            "communaute": 4,
+            "situation_matrimoniale": "M",
+            "profession": "Missionnaire",
+            "fonction": null,
+            "nb_enfants": 2,
+            "anciennete_foi": 10,
+            "soumis_par": [
+                "naomi"
+            ],
+            "reunion": 8,
+            "beneficiaire": 4,
+            "montant_sollicite": 50000,
+            "montant_alloue": 20000,
+            "sollicitation_externe": null,
+            "classification": "M",
+            "urgence": false,
+            "description": "",
+            "suivi": "O",
+            "don_remis": null,
+            "compte_rendu": "",
+            "nature": [
+                8,
+                7
+            ]
+        }
+    },
+    {
+        "model": "blog.cas",
+        "pk": 8,
+        "fields": {
+            "nom": "Essai",
+            "prenoms": "Test",
+            "sexe": "M",
+            "communaute": 3,
+            "situation_matrimoniale": "C",
+            "profession": "Sans",
+            "fonction": null,
+            "nb_enfants": 2,
+            "anciennete_foi": 5,
+            "soumis_par": [
+                "georges"
+            ],
+            "reunion": 7,
+            "beneficiaire": 2,
+            "montant_sollicite": 20000,
+            "montant_alloue": null,
+            "sollicitation_externe": null,
+            "classification": "S",
+            "urgence": false,
+            "description": "",
+            "suivi": "O",
+            "don_remis": null,
+            "compte_rendu": "",
+            "nature": [
+                3
+            ]
+        }
+    },
+    {
+        "model": "blog.cas",
+        "pk": 9,
+        "fields": {
+            "nom": "DAH",
+            "prenoms": "Koffi",
+            "sexe": "M",
+            "communaute": 5,
+            "situation_matrimoniale": "M",
+            "profession": "Missionnaire",
+            "fonction": null,
+            "nb_enfants": 3,
+            "anciennete_foi": 15,
+            "soumis_par": [
+                "georges"
+            ],
+            "reunion": 8,
+            "beneficiaire": 5,
+            "montant_sollicite": 50000,
+            "montant_alloue": 20000,
+            "sollicitation_externe": null,
+            "classification": "M",
+            "urgence": false,
+            "description": "",
+            "suivi": "O",
+            "don_remis": null,
+            "compte_rendu": "",
+            "nature": [
+                9,
+                7
+            ]
+        }
+    },
+    {
+        "model": "blog.cas",
+        "pk": 10,
+        "fields": {
+            "nom": "GUEHI",
+            "prenoms": "Thierry",
+            "sexe": "M",
+            "communaute": 1,
+            "situation_matrimoniale": "M",
+            "profession": "Maçon",
+            "fonction": null,
+            "nb_enfants": 3,
+            "anciennete_foi": 10,
+            "soumis_par": [
+                "georges"
+            ],
+            "reunion": 8,
+            "beneficiaire": 6,
+            "montant_sollicite": 10000,
+            "montant_alloue": 5000,
+            "sollicitation_externe": null,
+            "classification": "S",
+            "urgence": false,
+            "description": "",
+            "suivi": "O",
+            "don_remis": null,
+            "compte_rendu": "",
+            "nature": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "blog.cas",
+        "pk": 11,
+        "fields": {
+            "nom": "KOUE",
+            "prenoms": "Evelyne",
+            "sexe": "F",
+            "communaute": 1,
+            "situation_matrimoniale": "M",
+            "profession": "Commerciale",
+            "fonction": null,
+            "nb_enfants": 2,
+            "anciennete_foi": 3,
+            "soumis_par": [
+                "naomi"
+            ],
+            "reunion": 8,
+            "beneficiaire": 7,
+            "montant_sollicite": 15000,
+            "montant_alloue": 15000,
+            "sollicitation_externe": null,
+            "classification": "S",
+            "urgence": true,
+            "description": "",
+            "suivi": "O",
+            "don_remis": null,
+            "compte_rendu": "",
+            "nature": [
+                3,
+                2
+            ]
+        }
+    },
+    {
+        "model": "blog.cas",
+        "pk": 12,
+        "fields": {
+            "nom": "MISSIONNAIRE",
+            "prenoms": "Dévouée",
+            "sexe": "F",
+            "communaute": 4,
+            "situation_matrimoniale": "C",
+            "profession": "Missionnaire",
+            "fonction": null,
+            "nb_enfants": 0,
+            "anciennete_foi": 20,
+            "soumis_par": [
+                "naomi"
+            ],
+            "reunion": 7,
+            "beneficiaire": 8,
+            "montant_sollicite": 25000,
+            "montant_alloue": null,
+            "sollicitation_externe": null,
+            "classification": "M",
+            "urgence": false,
+            "description": "",
+            "suivi": "O",
+            "don_remis": null,
+            "compte_rendu": "",
+            "nature": [
+                7
+            ]
+        }
+    },
+    {
+        "model": "blog.cotisation",
+        "pk": 3,
+        "fields": {
+            "membre": [
+                "stephane"
+            ],
+            "reunion": 7,
+            "montant_social": 20000,
+            "social_libere": false,
+            "montant_mission": 10000,
+            "mission_libere": false
+        }
+    },
+    {
+        "model": "blog.cotisation",
+        "pk": 4,
+        "fields": {
+            "membre": [
+                "naomi"
+            ],
+            "reunion": 7,
+            "montant_social": 20000,
+            "social_libere": false,
+            "montant_mission": 10000,
+            "mission_libere": false
+        }
+    },
+    {
+        "model": "blog.cotisation",
+        "pk": 5,
+        "fields": {
+            "membre": [
+                "laurent"
+            ],
+            "reunion": 7,
+            "montant_social": 20000,
+            "social_libere": false,
+            "montant_mission": 5000,
+            "mission_libere": false
+        }
+    },
+    {
+        "model": "blog.cotisation",
+        "pk": 6,
+        "fields": {
+            "membre": [
+                "georges"
+            ],
+            "reunion": 7,
+            "montant_social": 20000,
+            "social_libere": false,
+            "montant_mission": 10000,
+            "mission_libere": false
+        }
+    },
+    {
+        "model": "blog.cotisation",
+        "pk": 7,
+        "fields": {
+            "membre": [
+                "blaise"
+            ],
+            "reunion": 7,
+            "montant_social": 15000,
+            "social_libere": false,
+            "montant_mission": 5000,
+            "mission_libere": false
+        }
+    },
+    {
+        "model": "blog.cotisation",
+        "pk": 8,
+        "fields": {
+            "membre": [
+                "stephane"
+            ],
+            "reunion": 8,
+            "montant_social": 25000,
+            "social_libere": true,
+            "montant_mission": 10000,
+            "mission_libere": true
+        }
+    },
+    {
+        "model": "blog.cotisation",
+        "pk": 9,
+        "fields": {
+            "membre": [
+                "naomi"
+            ],
+            "reunion": 8,
+            "montant_social": 20000,
+            "social_libere": true,
+            "montant_mission": 10000,
+            "mission_libere": true
+        }
+    },
+    {
+        "model": "blog.cotisation",
+        "pk": 10,
+        "fields": {
+            "membre": [
+                "laurent"
+            ],
+            "reunion": 8,
+            "montant_social": 20000,
+            "social_libere": true,
+            "montant_mission": 5000,
+            "mission_libere": true
+        }
+    },
+    {
+        "model": "blog.cotisation",
+        "pk": 11,
+        "fields": {
+            "membre": [
+                "georges"
+            ],
+            "reunion": 8,
+            "montant_social": 20000,
+            "social_libere": false,
+            "montant_mission": 10000,
+            "mission_libere": true
+        }
+    },
+    {
+        "model": "blog.cotisation",
+        "pk": 12,
+        "fields": {
+            "membre": [
+                "blaise"
+            ],
+            "reunion": 8,
+            "montant_social": 15000,
+            "social_libere": false,
+            "montant_mission": 5000,
+            "mission_libere": false
+        }
+    },
+    {
+        "model": "blog.cotisation",
+        "pk": 13,
+        "fields": {
+            "membre": [
+                "stephane"
+            ],
+            "reunion": 9,
+            "montant_social": 0,
+            "social_libere": true,
+            "montant_mission": 0,
+            "mission_libere": true
+        }
+    },
+    {
+        "model": "blog.cotisation",
+        "pk": 14,
+        "fields": {
+            "membre": [
+                "naomi"
+            ],
+            "reunion": 9,
+            "montant_social": 20000,
+            "social_libere": true,
+            "montant_mission": 10000,
+            "mission_libere": true
+        }
+    },
+    {
+        "model": "blog.cotisation",
+        "pk": 15,
+        "fields": {
+            "membre": [
+                "laurent"
+            ],
+            "reunion": 9,
+            "montant_social": 0,
+            "social_libere": true,
+            "montant_mission": 0,
+            "mission_libere": true
+        }
+    },
+    {
+        "model": "blog.cotisation",
+        "pk": 16,
+        "fields": {
+            "membre": [
+                "georges"
+            ],
+            "reunion": 9,
+            "montant_social": 20000,
+            "social_libere": true,
+            "montant_mission": 10000,
+            "mission_libere": true
+        }
+    },
+    {
+        "model": "blog.cotisation",
+        "pk": 17,
+        "fields": {
+            "membre": [
+                "blaise"
+            ],
+            "reunion": 9,
+            "montant_social": 15000,
+            "social_libere": false,
+            "montant_mission": 5000,
+            "mission_libere": false
+        }
+    },
+    {
+        "model": "blog.affectationnonlibere",
+        "pk": 2,
+        "fields": {
+            "reunion": 8,
+            "cotisation": 11,
+            "collecteur": [
+                "naomi"
+            ],
+            "somme": 5000,
+            "cas": 11
+        }
+    },
+    {
+        "model": "blog.affectationnonlibere",
+        "pk": 3,
+        "fields": {
+            "reunion": 8,
+            "cotisation": 11,
+            "collecteur": [
+                "laurent"
+            ],
+            "somme": 5000,
+            "cas": 5
+        }
+    },
+    {
+        "model": "blog.affectationnonlibere",
+        "pk": 4,
+        "fields": {
+            "reunion": 8,
+            "cotisation": 12,
+            "collecteur": [
+                "laurent"
+            ],
+            "somme": 10000,
+            "cas": 7
+        }
+    },
+    {
+        "model": "blog.affectationnonlibere",
+        "pk": 5,
+        "fields": {
+            "reunion": 8,
+            "cotisation": 11,
+            "collecteur": [
+                "naomi"
+            ],
+            "somme": 10000,
+            "cas": 9
+        }
+    },
+    {
+        "model": "blog.affectationnonlibere",
+        "pk": 6,
+        "fields": {
+            "reunion": 8,
+            "cotisation": 12,
+            "collecteur": [
+                "stephane"
+            ],
+            "somme": 10000,
+            "cas": 6
+        }
+    },
+    {
+        "model": "blog.vuecotisationnonliberee",
+        "pk": 3,
+        "fields": {
+            "membre": [
+                "stephane"
+            ],
+            "reunion": 7,
+            "montant_social": 20000,
+            "social_libere": false,
+            "montant_mission": 10000,
+            "mission_libere": false,
+            "reste_cotis_social": 20000,
+            "reste_cotis_mission": 10000
+        }
+    },
+    {
+        "model": "blog.vuecotisationnonliberee",
+        "pk": 4,
+        "fields": {
+            "membre": [
+                "naomi"
+            ],
+            "reunion": 7,
+            "montant_social": 20000,
+            "social_libere": false,
+            "montant_mission": 10000,
+            "mission_libere": false,
+            "reste_cotis_social": 20000,
+            "reste_cotis_mission": 10000
+        }
+    },
+    {
+        "model": "blog.vuecotisationnonliberee",
+        "pk": 5,
+        "fields": {
+            "membre": [
+                "laurent"
+            ],
+            "reunion": 7,
+            "montant_social": 20000,
+            "social_libere": false,
+            "montant_mission": 5000,
+            "mission_libere": false,
+            "reste_cotis_social": 20000,
+            "reste_cotis_mission": 5000
+        }
+    },
+    {
+        "model": "blog.vuecotisationnonliberee",
+        "pk": 6,
+        "fields": {
+            "membre": [
+                "georges"
+            ],
+            "reunion": 7,
+            "montant_social": 20000,
+            "social_libere": false,
+            "montant_mission": 10000,
+            "mission_libere": false,
+            "reste_cotis_social": 20000,
+            "reste_cotis_mission": 10000
+        }
+    },
+    {
+        "model": "blog.vuecotisationnonliberee",
+        "pk": 7,
+        "fields": {
+            "membre": [
+                "blaise"
+            ],
+            "reunion": 7,
+            "montant_social": 15000,
+            "social_libere": false,
+            "montant_mission": 5000,
+            "mission_libere": false,
+            "reste_cotis_social": 15000,
+            "reste_cotis_mission": 5000
+        }
+    },
+    {
+        "model": "blog.vuecotisationnonliberee",
+        "pk": 11,
+        "fields": {
+            "membre": [
+                "georges"
+            ],
+            "reunion": 8,
+            "montant_social": 20000,
+            "social_libere": false,
+            "montant_mission": 10000,
+            "mission_libere": true,
+            "reste_cotis_social": 10000,
+            "reste_cotis_mission": -10000
+        }
+    },
+    {
+        "model": "blog.vuecotisationnonliberee",
+        "pk": 12,
+        "fields": {
+            "membre": [
+                "blaise"
+            ],
+            "reunion": 8,
+            "montant_social": 15000,
+            "social_libere": false,
+            "montant_mission": 5000,
+            "mission_libere": false,
+            "reste_cotis_social": 5000,
+            "reste_cotis_mission": -5000
+        }
+    },
+    {
+        "model": "blog.vuecotisationnonliberee",
+        "pk": 17,
+        "fields": {
+            "membre": [
+                "blaise"
+            ],
+            "reunion": 9,
+            "montant_social": 15000,
+            "social_libere": false,
+            "montant_mission": 5000,
+            "mission_libere": false,
+            "reste_cotis_social": 15000,
+            "reste_cotis_mission": 5000
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 1,
+        "fields": {
+            "action_time": "2020-03-29T17:26:04.751Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "famillecommunaute"
+            ],
+            "object_id": "1",
+            "object_repr": "EEAD",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 2,
+        "fields": {
+            "action_time": "2020-03-29T17:26:10.950Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "famillecommunaute"
+            ],
+            "object_id": "2",
+            "object_repr": "Réveil",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 3,
+        "fields": {
+            "action_time": "2020-03-29T17:26:15.960Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "famillecommunaute"
+            ],
+            "object_id": "3",
+            "object_repr": "EPEM",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 4,
+        "fields": {
+            "action_time": "2020-03-29T17:26:32.259Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "famillecommunaute"
+            ],
+            "object_id": "4",
+            "object_repr": "Indépendant",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 5,
+        "fields": {
+            "action_time": "2020-03-29T17:28:20.482Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "famillecommunaute"
+            ],
+            "object_id": "5",
+            "object_repr": "AMI",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 6,
+        "fields": {
+            "action_time": "2020-03-29T17:28:26.882Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "famillecommunaute"
+            ],
+            "object_id": "6",
+            "object_repr": "FMC",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 7,
+        "fields": {
+            "action_time": "2020-03-29T17:28:35.400Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "famillecommunaute"
+            ],
+            "object_id": "7",
+            "object_repr": "Mission",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 8,
+        "fields": {
+            "action_time": "2020-03-29T17:29:01.298Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "communaute"
+            ],
+            "object_id": "1",
+            "object_repr": "Cocody Centre",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 9,
+        "fields": {
+            "action_time": "2020-03-29T17:29:52.370Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "communaute"
+            ],
+            "object_id": "2",
+            "object_repr": "Plateau Dokui",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 10,
+        "fields": {
+            "action_time": "2020-03-29T17:32:28.735Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "naturebesoin"
+            ],
+            "object_id": "1",
+            "object_repr": "Santé",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 11,
+        "fields": {
+            "action_time": "2020-03-29T17:32:37.362Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "naturebesoin"
+            ],
+            "object_id": "2",
+            "object_repr": "Subsistance",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 12,
+        "fields": {
+            "action_time": "2020-03-29T17:32:43.464Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "naturebesoin"
+            ],
+            "object_id": "3",
+            "object_repr": "Scolarité",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 13,
+        "fields": {
+            "action_time": "2020-03-29T17:32:54.268Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "naturebesoin"
+            ],
+            "object_id": "4",
+            "object_repr": "Entreprise",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 14,
+        "fields": {
+            "action_time": "2020-03-29T17:55:19.784Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "membre"
+            ],
+            "object_id": "4",
+            "object_repr": "Blaise AGRE",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"last_name\", \"first_name\", \"sexe\", \"telephone1\", \"activite\", \"profession\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 15,
+        "fields": {
+            "action_time": "2020-03-29T17:55:49.041Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "provuser"
+            ],
+            "object_id": "4",
+            "object_repr": "Blaise AGRE",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"is_superuser\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 16,
+        "fields": {
+            "action_time": "2020-03-29T17:56:47.748Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "communaute"
+            ],
+            "object_id": "3",
+            "object_repr": "EPEM II Plateaux",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 17,
+        "fields": {
+            "action_time": "2020-03-29T17:57:06.481Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "membre"
+            ],
+            "object_id": "4",
+            "object_repr": "Blaise AGRE",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"communaute\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 18,
+        "fields": {
+            "action_time": "2020-03-29T18:00:06.717Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "membre"
+            ],
+            "object_id": "3",
+            "object_repr": "Koudou Laurent et Aline GNOKO",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"last_name\", \"first_name\", \"sexe\", \"telephone1\", \"adresse\", \"communaute\", \"activite\", \"profession\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 19,
+        "fields": {
+            "action_time": "2020-03-29T18:01:33.911Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "membre"
+            ],
+            "object_id": "2",
+            "object_repr": "Georges KACOU",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"last_name\", \"first_name\", \"sexe\", \"date_naissance\", \"telephone1\", \"telephone2\", \"adresse\", \"communaute\", \"activite\", \"profession\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 20,
+        "fields": {
+            "action_time": "2020-03-29T23:54:40.884Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "provuser"
+            ],
+            "object_id": "2",
+            "object_repr": "Georges KACOU",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"is_superuser\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 21,
+        "fields": {
+            "action_time": "2020-03-29T23:56:19.260Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "provuser"
+            ],
+            "object_id": "1",
+            "object_repr": "Administrateur Providence",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"first_name\", \"last_name\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 22,
+        "fields": {
+            "action_time": "2020-03-30T01:17:50.521Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "naturebesoin"
+            ],
+            "object_id": "5",
+            "object_repr": "Evangélisation",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 23,
+        "fields": {
+            "action_time": "2020-03-30T01:18:05.878Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "naturebesoin"
+            ],
+            "object_id": "6",
+            "object_repr": "Construction",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 24,
+        "fields": {
+            "action_time": "2020-03-30T01:18:16.620Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "naturebesoin"
+            ],
+            "object_id": "7",
+            "object_repr": "Soutien missionnaire",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 25,
+        "fields": {
+            "action_time": "2020-03-30T01:18:27.424Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "naturebesoin"
+            ],
+            "object_id": "8",
+            "object_repr": "Implantation",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 26,
+        "fields": {
+            "action_time": "2020-03-30T01:18:47.907Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "naturebesoin"
+            ],
+            "object_id": "9",
+            "object_repr": "Achat d'équipement",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 27,
+        "fields": {
+            "action_time": "2020-04-05T01:36:12.893Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "provuser"
+            ],
+            "object_id": "2",
+            "object_repr": "Georges KACOU",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"is_superuser\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 28,
+        "fields": {
+            "action_time": "2020-04-05T18:19:59.982Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "1",
+            "object_repr": "12/01/2020 - Stéphane LEGRE (Riviéra II)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 29,
+        "fields": {
+            "action_time": "2020-04-05T18:20:55.188Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "2",
+            "object_repr": "15/12/2019 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 30,
+        "fields": {
+            "action_time": "2020-04-05T18:50:52.451Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "3",
+            "object_repr": "15/03/2020 - Blaise AGRE (Bingerville)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 31,
+        "fields": {
+            "action_time": "2020-04-05T18:58:19.867Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "2",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"date_reunion\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 32,
+        "fields": {
+            "action_time": "2020-04-05T19:49:10.242Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "membre"
+            ],
+            "object_id": "1",
+            "object_repr": "Administrateur Providence",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"sexe\", \"telephone1\", \"personne_physique\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 33,
+        "fields": {
+            "action_time": "2020-04-05T20:04:49.296Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "auth",
+                "group"
+            ],
+            "object_id": "1",
+            "object_repr": "Membres",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 34,
+        "fields": {
+            "action_time": "2020-04-05T20:06:06.201Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "auth",
+                "group"
+            ],
+            "object_id": "2",
+            "object_repr": "Trésorerie",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 35,
+        "fields": {
+            "action_time": "2020-04-05T20:07:18.828Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "provuser"
+            ],
+            "object_id": "4",
+            "object_repr": "Blaise AGRE",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"groups\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 36,
+        "fields": {
+            "action_time": "2020-04-05T20:07:54.338Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "provuser"
+            ],
+            "object_id": "5",
+            "object_repr": "Stéphane LEGRE",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"groups\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 37,
+        "fields": {
+            "action_time": "2020-04-05T20:10:27.093Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "provuser"
+            ],
+            "object_id": "2",
+            "object_repr": "Georges KACOU",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 38,
+        "fields": {
+            "action_time": "2020-04-05T20:10:35.834Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "provuser"
+            ],
+            "object_id": "3",
+            "object_repr": "Koudou Laurent et Aline GNOKO",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"groups\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 39,
+        "fields": {
+            "action_time": "2020-04-05T20:10:45.574Z",
+            "user": [
+                "admin"
+            ],
+            "content_type": [
+                "blog",
+                "provuser"
+            ],
+            "object_id": "5",
+            "object_repr": "Stéphane LEGRE",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 40,
+        "fields": {
+            "action_time": "2020-04-05T21:09:27.298Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "provuser"
+            ],
+            "object_id": "6",
+            "object_repr": "Naomi KACOU",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"is_superuser\", \"groups\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 41,
+        "fields": {
+            "action_time": "2020-04-05T21:10:03.619Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "membre"
+            ],
+            "object_id": "6",
+            "object_repr": "Naomi KACOU",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"sexe\", \"telephone1\", \"communaute\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 42,
+        "fields": {
+            "action_time": "2020-04-05T21:26:42.336Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "beneficiaire"
+            ],
+            "object_id": "1",
+            "object_repr": "Adolphe GUETI",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 43,
+        "fields": {
+            "action_time": "2020-04-05T21:31:56.346Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "beneficiaire"
+            ],
+            "object_id": "2",
+            "object_repr": "Test Essai",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 44,
+        "fields": {
+            "action_time": "2020-04-05T21:32:02.098Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "1",
+            "object_repr": "None None",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 45,
+        "fields": {
+            "action_time": "2020-04-05T21:34:50.119Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "1",
+            "object_repr": "Test Essai",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"nom\", \"prenoms\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 46,
+        "fields": {
+            "action_time": "2020-04-05T22:45:40.441Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "2",
+            "object_repr": "Adolphe GUETI",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 47,
+        "fields": {
+            "action_time": "2020-04-05T22:46:21.892Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "3",
+            "object_repr": "Adolphe GUETI",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 48,
+        "fields": {
+            "action_time": "2020-04-05T22:49:55.131Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "3",
+            "object_repr": "Adolphe GUETI",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 49,
+        "fields": {
+            "action_time": "2020-04-05T23:47:58.750Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "1",
+            "object_repr": "Test Essai",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"classification\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 50,
+        "fields": {
+            "action_time": "2020-04-08T01:38:00.146Z",
+            "user": [
+                "stephane"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "2",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Adolphe GUETI\", \"fields\": [\"urgence\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 51,
+        "fields": {
+            "action_time": "2020-04-08T01:38:09.921Z",
+            "user": [
+                "stephane"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "2",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Adolphe GUETI\", \"fields\": [\"urgence\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 52,
+        "fields": {
+            "action_time": "2020-04-09T00:18:40.012Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "2",
+            "object_repr": "Adolphe GUETI",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"urgence\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 53,
+        "fields": {
+            "action_time": "2020-04-09T00:19:05.681Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "2",
+            "object_repr": "Adolphe GUETI",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"urgence\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 54,
+        "fields": {
+            "action_time": "2020-04-09T00:24:29.782Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "2",
+            "object_repr": "Adolphe GUETI",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"urgence\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 55,
+        "fields": {
+            "action_time": "2020-04-09T00:41:28.189Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "2",
+            "object_repr": "Adolphe GUETI",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"nature\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 56,
+        "fields": {
+            "action_time": "2020-04-09T00:41:45.480Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "1",
+            "object_repr": "Test Essai",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"nature\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 57,
+        "fields": {
+            "action_time": "2020-04-09T01:12:56.747Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "beneficiaire"
+            ],
+            "object_id": "3",
+            "object_repr": "Sérieux PROBLEME",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 58,
+        "fields": {
+            "action_time": "2020-04-09T01:13:00.781Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "4",
+            "object_repr": "Sérieux PROBLEME",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 59,
+        "fields": {
+            "action_time": "2020-04-09T01:13:31.544Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "4",
+            "object_repr": "Sérieux PROBLEME",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"nature\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 60,
+        "fields": {
+            "action_time": "2020-04-09T01:14:15.564Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "2",
+            "object_repr": "Adolphe GUETI",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"urgence\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 61,
+        "fields": {
+            "action_time": "2020-04-09T01:14:23.282Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "4",
+            "object_repr": "Sérieux PROBLEME",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"urgence\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 62,
+        "fields": {
+            "action_time": "2020-04-09T02:12:12.621Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "membre"
+            ],
+            "object_id": "4",
+            "object_repr": "Blaise AGRE",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"cotisation_social\", \"cotisation_mission\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 63,
+        "fields": {
+            "action_time": "2020-04-09T02:12:31.906Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "membre"
+            ],
+            "object_id": "2",
+            "object_repr": "Georges KACOU",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"cotisation_social\", \"cotisation_mission\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 64,
+        "fields": {
+            "action_time": "2020-04-09T02:12:42.304Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "membre"
+            ],
+            "object_id": "6",
+            "object_repr": "Naomi KACOU",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"cotisation_social\", \"cotisation_mission\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 65,
+        "fields": {
+            "action_time": "2020-04-09T02:12:53.253Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "membre"
+            ],
+            "object_id": "4",
+            "object_repr": "Blaise AGRE",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"cotisation_social\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 66,
+        "fields": {
+            "action_time": "2020-04-09T02:19:21.839Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "7",
+            "object_repr": "09/04/2019 - Georges KACOU (Riviéra Bonoumin)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 67,
+        "fields": {
+            "action_time": "2020-04-10T23:15:58.377Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "2",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 68,
+        "fields": {
+            "action_time": "2020-04-10T23:22:57.274Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "3",
+            "object_repr": "15/03/2020 - Blaise AGRE (Bingerville)",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 69,
+        "fields": {
+            "action_time": "2020-04-10T23:22:57.279Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "1",
+            "object_repr": "12/01/2020 - Stéphane LEGRE (Riviéra II)",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 70,
+        "fields": {
+            "action_time": "2020-04-10T23:24:18.638Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 71,
+        "fields": {
+            "action_time": "2020-04-10T23:24:50.150Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "5",
+            "object_repr": "Adolphe GUETI",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 72,
+        "fields": {
+            "action_time": "2020-04-10T23:25:25.200Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "5",
+            "object_repr": "Adolphe GUETI",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"montant_sollicite\", \"nature\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 73,
+        "fields": {
+            "action_time": "2020-04-10T23:25:33.118Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "6",
+            "object_repr": "Sérieux PROBLEME",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 74,
+        "fields": {
+            "action_time": "2020-04-10T23:26:12.126Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "6",
+            "object_repr": "Sérieux PROBLEME",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"soumis_par\", \"montant_sollicite\", \"nature\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 75,
+        "fields": {
+            "action_time": "2020-04-10T23:27:51.699Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "communaute"
+            ],
+            "object_id": "4",
+            "object_repr": "FMC Bakopla",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 76,
+        "fields": {
+            "action_time": "2020-04-10T23:28:04.747Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "beneficiaire"
+            ],
+            "object_id": "4",
+            "object_repr": "Félix OUATTARA",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 77,
+        "fields": {
+            "action_time": "2020-04-10T23:28:08.452Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "7",
+            "object_repr": "Félix OUATTARA",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 78,
+        "fields": {
+            "action_time": "2020-04-10T23:28:36.408Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "7",
+            "object_repr": "Félix OUATTARA",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"montant_sollicite\", \"nature\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 79,
+        "fields": {
+            "action_time": "2020-04-11T01:08:23.684Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "8",
+            "object_repr": "Test Essai",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 80,
+        "fields": {
+            "action_time": "2020-04-11T01:08:44.614Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "8",
+            "object_repr": "Test Essai",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"montant_sollicite\", \"nature\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 81,
+        "fields": {
+            "action_time": "2020-04-11T01:53:42.325Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "9",
+            "object_repr": "15/12/2019 - Blaise AGRE (Route de Bingerville)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 82,
+        "fields": {
+            "action_time": "2020-04-11T04:04:08.491Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "7",
+            "object_repr": "09/04/2019 - Georges KACOU (Riviéra Bonoumin)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cotisation du mois\", \"object\": \"\", \"fields\": [\"montant_social\", \"montant_mission\"]}}, {\"changed\": {\"name\": \"cotisation du mois\", \"object\": \"\", \"fields\": [\"montant_social\", \"montant_mission\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 83,
+        "fields": {
+            "action_time": "2020-04-11T04:04:59.373Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cotisation du mois\", \"object\": \"\", \"fields\": [\"montant_social\", \"montant_mission\"]}}, {\"changed\": {\"name\": \"cotisation du mois\", \"object\": \"\", \"fields\": [\"montant_social\", \"montant_mission\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 84,
+        "fields": {
+            "action_time": "2020-04-11T19:48:49.865Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "communaute"
+            ],
+            "object_id": "5",
+            "object_repr": "FMC Badiokaha",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 85,
+        "fields": {
+            "action_time": "2020-04-11T19:48:58.310Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "beneficiaire"
+            ],
+            "object_id": "5",
+            "object_repr": "Koffi DAH",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 86,
+        "fields": {
+            "action_time": "2020-04-11T19:49:03.454Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "9",
+            "object_repr": "Koffi DAH",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 87,
+        "fields": {
+            "action_time": "2020-04-11T19:49:51.333Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "9",
+            "object_repr": "Koffi DAH",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"nature\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 88,
+        "fields": {
+            "action_time": "2020-04-11T19:50:10.589Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "9",
+            "object_repr": "Koffi DAH",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"montant_sollicite\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 89,
+        "fields": {
+            "action_time": "2020-04-11T23:08:47.491Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "beneficiaire"
+            ],
+            "object_id": "6",
+            "object_repr": "Thierry GUEHI",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 90,
+        "fields": {
+            "action_time": "2020-04-11T23:08:50.686Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "10",
+            "object_repr": "Thierry GUEHI",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 91,
+        "fields": {
+            "action_time": "2020-04-11T23:09:07.281Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "10",
+            "object_repr": "Thierry GUEHI",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"montant_sollicite\", \"nature\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 92,
+        "fields": {
+            "action_time": "2020-04-12T20:33:51.660Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Thierry GUEHI\", \"fields\": [\"montant_alloue\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 93,
+        "fields": {
+            "action_time": "2020-04-12T20:33:59.483Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Thierry GUEHI\", \"fields\": [\"montant_alloue\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 94,
+        "fields": {
+            "action_time": "2020-04-12T20:34:07.069Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Adolphe GUETI\", \"fields\": [\"montant_alloue\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 95,
+        "fields": {
+            "action_time": "2020-04-12T20:34:24.692Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Adolphe GUETI\", \"fields\": [\"montant_alloue\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 96,
+        "fields": {
+            "action_time": "2020-04-12T20:36:17.439Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Koffi DAH\", \"fields\": [\"montant_alloue\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 97,
+        "fields": {
+            "action_time": "2020-04-12T20:36:35.285Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Félix OUATTARA\", \"fields\": [\"montant_alloue\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 98,
+        "fields": {
+            "action_time": "2020-04-12T20:46:08.703Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Adolphe GUETI\", \"fields\": [\"montant_alloue\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 99,
+        "fields": {
+            "action_time": "2020-04-12T20:46:23.916Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Félix OUATTARA\", \"fields\": [\"montant_alloue\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 100,
+        "fields": {
+            "action_time": "2020-04-12T20:48:24.517Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Adolphe GUETI\", \"fields\": [\"montant_alloue\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 101,
+        "fields": {
+            "action_time": "2020-04-12T20:49:29.403Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cotisation du mois\", \"object\": \"\", \"fields\": [\"social_libere\", \"mission_libere\"]}}, {\"changed\": {\"name\": \"cotisation du mois\", \"object\": \"\", \"fields\": [\"social_libere\", \"mission_libere\"]}}, {\"changed\": {\"name\": \"cotisation du mois\", \"object\": \"\", \"fields\": [\"social_libere\", \"mission_libere\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 102,
+        "fields": {
+            "action_time": "2020-04-12T20:57:10.803Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 103,
+        "fields": {
+            "action_time": "2020-04-12T20:57:23.183Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "6",
+            "object_repr": "Sérieux PROBLEME",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 104,
+        "fields": {
+            "action_time": "2020-04-12T20:58:06.886Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Sérieux PROBLEME\", \"fields\": [\"montant_alloue\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 105,
+        "fields": {
+            "action_time": "2020-04-12T20:58:39.626Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Koffi DAH\", \"fields\": [\"montant_alloue\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 106,
+        "fields": {
+            "action_time": "2020-04-12T20:58:48.892Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Koffi DAH\", \"fields\": [\"montant_alloue\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 107,
+        "fields": {
+            "action_time": "2020-04-12T21:00:29.684Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 108,
+        "fields": {
+            "action_time": "2020-04-12T21:02:39.119Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Koffi DAH\", \"fields\": [\"montant_alloue\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 109,
+        "fields": {
+            "action_time": "2020-04-12T21:38:21.587Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Koffi DAH\", \"fields\": [\"montant_alloue\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 110,
+        "fields": {
+            "action_time": "2020-04-12T21:38:26.889Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Koffi DAH\", \"fields\": [\"montant_alloue\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 111,
+        "fields": {
+            "action_time": "2020-04-12T22:12:39.543Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "6",
+            "object_repr": "Sérieux PROBLEME",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"montant_sollicite\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 112,
+        "fields": {
+            "action_time": "2020-04-12T22:15:37.680Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "6",
+            "object_repr": "Sérieux PROBLEME",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"montant_sollicite\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 113,
+        "fields": {
+            "action_time": "2020-04-12T22:16:06.226Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Sérieux PROBLEME\", \"fields\": [\"montant_sollicite\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 114,
+        "fields": {
+            "action_time": "2020-04-12T22:18:26.069Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 115,
+        "fields": {
+            "action_time": "2020-04-12T22:18:41.335Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Sérieux PROBLEME\", \"fields\": [\"montant_sollicite\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 116,
+        "fields": {
+            "action_time": "2020-04-13T00:56:23.501Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Sérieux PROBLEME\", \"fields\": [\"montant_sollicite\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 117,
+        "fields": {
+            "action_time": "2020-04-13T00:58:44.194Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "beneficiaire"
+            ],
+            "object_id": "7",
+            "object_repr": "Evelyne KOUE",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 118,
+        "fields": {
+            "action_time": "2020-04-13T00:58:48.384Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "11",
+            "object_repr": "Evelyne KOUE",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 119,
+        "fields": {
+            "action_time": "2020-04-13T00:59:16.576Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "11",
+            "object_repr": "Evelyne KOUE",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"montant_sollicite\", \"nature\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 120,
+        "fields": {
+            "action_time": "2020-04-13T00:59:50.995Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Thierry GUEHI\", \"fields\": [\"montant_alloue\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 121,
+        "fields": {
+            "action_time": "2020-04-13T00:59:59.833Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Adolphe GUETI\", \"fields\": [\"montant_alloue\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 122,
+        "fields": {
+            "action_time": "2020-04-13T02:03:51.995Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "9",
+            "object_repr": "15/12/2019 - Blaise AGRE (Route de Bingerville)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cotisation du mois\", \"object\": \"Cotisation object (13)\", \"fields\": [\"social_libere\", \"mission_libere\"]}}, {\"changed\": {\"name\": \"cotisation du mois\", \"object\": \"Cotisation object (14)\", \"fields\": [\"social_libere\", \"mission_libere\"]}}, {\"changed\": {\"name\": \"cotisation du mois\", \"object\": \"Cotisation object (15)\", \"fields\": [\"social_libere\", \"mission_libere\"]}}, {\"changed\": {\"name\": \"cotisation du mois\", \"object\": \"Cotisation object (16)\", \"fields\": [\"social_libere\", \"mission_libere\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 123,
+        "fields": {
+            "action_time": "2020-04-13T03:46:29.868Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cotisation du mois\", \"object\": \"Cotisation object (9)\", \"fields\": [\"social_libere\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 124,
+        "fields": {
+            "action_time": "2020-04-13T03:46:40.869Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cotisation du mois\", \"object\": \"Cotisation object (9)\", \"fields\": [\"social_libere\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 125,
+        "fields": {
+            "action_time": "2020-04-13T04:53:57.470Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"added\": {\"name\": \"affectation de cotisation non libérée\", \"object\": \"AffectationNonLibere object (1)\"}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 126,
+        "fields": {
+            "action_time": "2020-04-13T06:20:37.086Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cotisation du mois\", \"object\": \"Cotisation object (10)\", \"fields\": [\"social_libere\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 127,
+        "fields": {
+            "action_time": "2020-04-13T06:30:31.537Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cotisation du mois\", \"object\": \"Cotisation object (10)\", \"fields\": [\"social_libere\"]}}, {\"changed\": {\"name\": \"affectation de cotisation non libérée\", \"object\": \"AffectationNonLibere object (1)\", \"fields\": [\"cotisation\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 128,
+        "fields": {
+            "action_time": "2020-04-13T06:30:51.166Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"affectation de cotisation non libérée\", \"object\": \"AffectationNonLibere object (1)\", \"fields\": [\"cotisation\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 129,
+        "fields": {
+            "action_time": "2020-04-13T13:36:08.282Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"deleted\": {\"name\": \"affectation de cotisation non libérée\", \"object\": \"Georges KACOU\"}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 130,
+        "fields": {
+            "action_time": "2020-04-13T13:36:50.191Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"added\": {\"name\": \"affectation de cotisation non libérée\", \"object\": \"Georges KACOU\"}}, {\"added\": {\"name\": \"affectation de cotisation non libérée\", \"object\": \"Georges KACOU\"}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 131,
+        "fields": {
+            "action_time": "2020-04-13T14:21:09.478Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "beneficiaire"
+            ],
+            "object_id": "8",
+            "object_repr": "Dévouée MISSIONNAIRE",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 132,
+        "fields": {
+            "action_time": "2020-04-13T14:21:32.398Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "12",
+            "object_repr": "Dévouée MISSIONNAIRE",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 133,
+        "fields": {
+            "action_time": "2020-04-13T14:22:13.755Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "cas"
+            ],
+            "object_id": "12",
+            "object_repr": "Dévouée MISSIONNAIRE",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"montant_sollicite\", \"nature\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 134,
+        "fields": {
+            "action_time": "2020-04-13T14:23:47.535Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"added\": {\"name\": \"affectation de cotisation non libérée\", \"object\": \"Blaise AGRE\"}}, {\"changed\": {\"name\": \"affectation de cotisation non libérée\", \"object\": \"Georges KACOU\", \"fields\": [\"cas\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 135,
+        "fields": {
+            "action_time": "2020-04-13T14:23:53.569Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"affectation de cotisation non libérée\", \"object\": \"Blaise AGRE\", \"fields\": [\"cas\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 136,
+        "fields": {
+            "action_time": "2020-04-15T12:18:42.606Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cotisation du mois\", \"object\": \"\", \"fields\": [\"mission_libere\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 137,
+        "fields": {
+            "action_time": "2020-04-15T13:05:04.115Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "auth",
+                "group"
+            ],
+            "object_id": "2",
+            "object_repr": "Trésorerie",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"permissions\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 138,
+        "fields": {
+            "action_time": "2020-04-16T02:01:10.941Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 139,
+        "fields": {
+            "action_time": "2020-04-16T02:01:20.830Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"compte_rendu\", \"liste_presence\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 140,
+        "fields": {
+            "action_time": "2020-04-16T02:08:21.977Z",
+            "user": [
+                "naomi"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 141,
+        "fields": {
+            "action_time": "2020-04-16T02:09:13.945Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"liste_presence\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 142,
+        "fields": {
+            "action_time": "2020-04-16T02:11:19.530Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Evelyne KOUE\", \"fields\": [\"montant_alloue\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 143,
+        "fields": {
+            "action_time": "2020-04-16T02:11:36.676Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Evelyne KOUE\", \"fields\": [\"montant_alloue\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 144,
+        "fields": {
+            "action_time": "2020-04-16T02:11:49.155Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 145,
+        "fields": {
+            "action_time": "2020-04-16T02:11:55.908Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"liste_presence\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 146,
+        "fields": {
+            "action_time": "2020-04-16T02:12:07.715Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cotisation du mois\", \"object\": \"\", \"fields\": [\"montant_social\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 147,
+        "fields": {
+            "action_time": "2020-04-16T02:13:12.379Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Adolphe GUETI\", \"fields\": [\"montant_alloue\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 148,
+        "fields": {
+            "action_time": "2020-04-16T02:17:44.759Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Evelyne KOUE\", \"fields\": [\"montant_alloue\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 149,
+        "fields": {
+            "action_time": "2020-04-16T02:18:08.088Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Thierry GUEHI\", \"fields\": [\"montant_alloue\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 150,
+        "fields": {
+            "action_time": "2020-04-17T21:53:47.712Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"added\": {\"name\": \"affectation de cotisation non libérée\", \"object\": \"Georges KACOU\"}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 151,
+        "fields": {
+            "action_time": "2020-04-18T10:26:28.404Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Koffi DAH\", \"fields\": [\"montant_alloue\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 152,
+        "fields": {
+            "action_time": "2020-04-18T10:26:45.815Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"cas\", \"object\": \"Koffi DAH\", \"fields\": [\"montant_alloue\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 153,
+        "fields": {
+            "action_time": "2020-04-18T10:36:18.374Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"affectation de cotisation non libérée\", \"object\": \"Blaise AGRE\", \"fields\": [\"somme\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 154,
+        "fields": {
+            "action_time": "2020-04-18T10:36:29.086Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"affectation de cotisation non libérée\", \"object\": \"Blaise AGRE\", \"fields\": [\"somme\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 155,
+        "fields": {
+            "action_time": "2020-04-18T10:38:08.017Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"affectation de cotisation non libérée\", \"object\": \"Blaise AGRE\", \"fields\": [\"somme\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 156,
+        "fields": {
+            "action_time": "2020-04-18T10:42:09.140Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"name\": \"affectation de cotisation non libérée\", \"object\": \"Georges KACOU\", \"fields\": [\"somme\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 157,
+        "fields": {
+            "action_time": "2020-04-18T12:37:36.568Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[{\"added\": {\"name\": \"affectation de cotisation non libérée\", \"object\": \"Blaise AGRE\"}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 158,
+        "fields": {
+            "action_time": "2020-04-18T22:45:02.933Z",
+            "user": [
+                "laurent"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 159,
+        "fields": {
+            "action_time": "2020-04-18T22:52:41.969Z",
+            "user": [
+                "laurent"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 160,
+        "fields": {
+            "action_time": "2020-04-18T23:14:11.461Z",
+            "user": [
+                "laurent"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 161,
+        "fields": {
+            "action_time": "2020-04-19T17:52:08.620Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "reunion"
+            ],
+            "object_id": "8",
+            "object_repr": "12/04/2020 - Koudou Laurent et Aline GNOKO (Plateau Dokui)",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 162,
+        "fields": {
+            "action_time": "2020-04-19T19:39:53.597Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "membre"
+            ],
+            "object_id": "1",
+            "object_repr": "Administrateur Providence",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"peut_cotiser\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 163,
+        "fields": {
+            "action_time": "2020-04-19T19:49:42.373Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "provuser"
+            ],
+            "object_id": "7",
+            "object_repr": " ",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 164,
+        "fields": {
+            "action_time": "2020-04-19T19:50:19.662Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "provuser"
+            ],
+            "object_id": "7",
+            "object_repr": "Caisse / Don Providence",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"first_name\", \"last_name\", \"groups\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 165,
+        "fields": {
+            "action_time": "2020-04-19T19:51:16.486Z",
+            "user": [
+                "georges"
+            ],
+            "content_type": [
+                "blog",
+                "membre"
+            ],
+            "object_id": "7",
+            "object_repr": "Caisse / Don Providence",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"sexe\", \"telephone1\", \"cotisation_social\", \"cotisation_mission\", \"personne_physique\"]}}]"
+        }
+    }
+]
