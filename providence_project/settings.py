@@ -198,7 +198,8 @@ django_heroku.settings(locals())
 
 # Supprimer l'exigence du SSL pour l'utilisation en local et activer le debug
 if os.path.isfile(os.path.join(BASE_DIR, ".env")):
-    del DATABASES['default']['OPTIONS']['sslmode']
+    if 'OPTIONS' in DATABASES['default']:
+        del DATABASES['default']['OPTIONS']['sslmode']
     DEBUG = True
 
 # Classe User personnalisée pour Providence
