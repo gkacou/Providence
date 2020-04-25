@@ -107,6 +107,6 @@ class CasChoiceField(forms.ModelChoiceField):
                 locale.setlocale(locale.LC_ALL, 'fr_FR')
             elif platform == "win32":
                 locale.setlocale(locale.LC_ALL, 'French_France.1252')
-        montant = f'{obj.montant_alloue:n}'
+        montant = f'{obj.montant_alloue:n}' if obj.montant_alloue is not None else ''
         return f'{obj.beneficiaire} ({obj.classification} : {montant})'
 

@@ -259,7 +259,7 @@ class Cas(Entite):
     soumis_par = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL)
     reunion = models.ForeignKey(Reunion, models.CASCADE, blank=False, related_name="cas_reunion", verbose_name="réunion")
     beneficiaire = models.ForeignKey(Beneficiaire, models.CASCADE, related_name="cas_beneficiaire", verbose_name="bénéficiaire")
-    montant_sollicite = models.PositiveIntegerField(null=True, blank=True, verbose_name="montant solllicité")
+    montant_sollicite = models.PositiveIntegerField(null=True, blank=True, default=0, verbose_name="montant solllicité")
     montant_alloue = models.PositiveIntegerField(null=True, blank=True, verbose_name="montant alloué")
     sollicitation_externe = models.PositiveIntegerField(null=True, blank=True, verbose_name="solllicitation hors Providence")
     classification = models.CharField(max_length=1, default='S', choices=CLASSIFICATION_CAS, verbose_name="classification du cas")
