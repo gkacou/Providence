@@ -17,40 +17,40 @@ CLASSIFICATION_CAS = (
 )
 
 
-class FamilleCommunaute(models.Model):
+class Communaute(models.Model):
     """
-    Grande famille de communauté chrétienne
+    Famille de communauté chrétienne
     """
-    nom = models.CharField(max_length=64, verbose_name="nom")
+    nom = models.CharField(max_length=128, unique=True, verbose_name="nom court")
+    nom_long = models.CharField(max_length=128, blank=True, null=True, verbose_name="nom long")
 
     class Meta:
-        verbose_name = "groupe de communauté"
-        verbose_name_plural = "groupes de communautés"
+        verbose_name = "communauté"
         ordering = ("nom",)
 
     def __str__(self):
         return self.nom
 
 
-class Communaute(models.Model):
-    """
-    Communauté chrétienne
-    """
-    famille = models.ForeignKey(FamilleCommunaute, models.CASCADE, verbose_name="groupe")
-    nom = models.CharField(max_length=64, verbose_name="nom de la communauté")
+# class Communaute(models.Model):
+#     """
+#     Communauté chrétienne
+#     """
+#     famille = models.ForeignKey(FamilleCommunaute, models.CASCADE, verbose_name="groupe")
+#     nom = models.CharField(max_length=128, verbose_name="nom de la communauté")
 
-    class Meta:
-        verbose_name = "communauté chrétienne"
-        verbose_name_plural = "communautés chrétiennes"
-        ordering = ("famille", "nom",)
+#     class Meta:
+#         verbose_name = "communauté chrétienne"
+#         verbose_name_plural = "communautés chrétiennes"
+#         ordering = ("famille", "nom",)
 
-    def nom_comunaute(self):
-        return f"{self.famille} {self.nom}"
-    nom_comunaute.admin_order_field = Concat('famille', Value(' '), 'nom')
-    nom_comunaute.short_description = "Communauté"
+#     def nom_comunaute(self):
+#         return f"{self.famille} {self.nom}"
+#     nom_comunaute.admin_order_field = Concat('famille', Value(' '), 'nom')
+#     nom_comunaute.short_description = "Communauté"
 
-    def __str__(self):
-        return f"{self.famille} {self.nom}"
+#     def __str__(self):
+#         return f"{self.famille} {self.nom}"
 
 
 class ProvUser(AbstractUser):
@@ -59,13 +59,14 @@ class ProvUser(AbstractUser):
     """
     sexe = models.CharField(null=True, max_length=1, choices=CHOIX_SEXE)
     date_naissance = models.DateField(blank=True, null=True, verbose_name="date de naissance")
-    telephone1 = models.CharField(default='', max_length=32, verbose_name="téléphone 1")
-    telephone2 = models.CharField(blank=True, default='', max_length=32, verbose_name="téléphone 2")
-    adresse = models.CharField(blank=True, default='', max_length=250, verbose_name="adresse géographique")
+    telephone1 = models.CharField(blank=True, null=True, default='', max_length=32, verbose_name="téléphone 1")
+    telephone2 = models.CharField(blank=True, null=True, default='', max_length=32, verbose_name="téléphone 2")
+    adresse = models.CharField(blank=True, null=True, default='', max_length=250, verbose_name="adresse géographique")
     date_adhesion = models.DateField(blank=True, null=True, verbose_name="date d'adhésion")
     communaute = models.ForeignKey(Communaute, models.SET_NULL, blank=True, null=True, verbose_name="église fréquentée")
-    activite = models.CharField(blank=True, default='', max_length=64, verbose_name="secteur d'activité")
-    profession = models.CharField(blank=True, default='', max_length=64)
+    eglise_locale = models.CharField(blank=True, null=True, default='', max_length=128, verbose_name="église locale")
+    activite = models.CharField(blank=True, null=True, default='', max_length=128, verbose_name="secteur d'activité")
+    profession = models.CharField(blank=True, null=True, default='', max_length=128)
     cotisation_social = models.PositiveIntegerField(blank=True, null=True, verbose_name="montant contribution social")
     cotisation_mission = models.PositiveIntegerField(blank=True, null=True, verbose_name="montant contribution mission")
     personne_physique = models.BooleanField(default=True)
@@ -86,7 +87,7 @@ class Membre(ProvUser):
     class Meta:
         proxy = True
         verbose_name = "membre"
-        ordering = ("-first_name",)
+        ordering = ("last_name", "first_name",)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
@@ -197,6 +198,7 @@ class Entite(models.Model):
     prenoms = models.CharField(max_length=64, null=True, blank=True, verbose_name="prénoms")
     sexe = models.CharField(null=True, blank=True, max_length=1, choices=CHOIX_SEXE)
     communaute = models.ForeignKey(Communaute, models.SET_NULL, blank=True, null=True, verbose_name="communauté fréquentée")
+    eglise_locale = models.CharField(blank=True, null=True, default='', max_length=128, verbose_name="église locale")
     situation_matrimoniale = models.CharField(max_length=1, blank=True, null=True, choices=SITUATION_MATRIMONIALE)
     profession = models.CharField(max_length=64, blank=True, null=True)
     fonction = models.CharField(max_length=64, blank=True, null=True)
@@ -290,6 +292,7 @@ class Cas(Entite):
             self.prenoms = benef.prenoms
             self.sexe = benef.sexe
             self.communaute = benef.communaute
+            self.eglise_locale = benef.eglise_locale
             self.situation_matrimoniale = benef.situation_matrimoniale
             self.profession = benef.profession
             self.fonction = benef.fonction

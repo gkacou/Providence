@@ -14,7 +14,6 @@ from django.urls import resolve
 from .models import (
     ProvUser,
     Membre,
-    FamilleCommunaute,
     Communaute,
     Reunion,
     Beneficiaire,
@@ -65,6 +64,7 @@ class ProvMembreAdmin(UserAdmin):
     list_display = ('last_name', 'first_name', 'telephone1', 'telephone2', 'adresse', 'email')
     list_display_links = ('last_name', 'first_name',)
     radio_fields = {'sexe': admin.HORIZONTAL}
+    ordering = ("last_name", "first_name",)
 
     # def get_queryset(self, *args, **kwargs):
     #     return super().get_queryset(request)
@@ -86,7 +86,7 @@ class ProvMembreAdmin(UserAdmin):
             ('telephone1', 'telephone2',),
             'adresse',
             'date_adhesion',
-            'communaute',
+            ('communaute', 'eglise_locale'),
             ('activite', 'profession',),
             ('cotisation_social', 'cotisation_mission',),
         )
@@ -102,15 +102,15 @@ class ProvMembreAdmin(UserAdmin):
         return fieldsets
 
 
-# Familles d'églises et églises
-@admin.register(FamilleCommunaute)
-class FamilleCommunauteAdmin(admin.ModelAdmin):
-    pass
-
+# Communautés
 @admin.register(Communaute)
 class CommunauteAdmin(admin.ModelAdmin):
-    list_display = ('nom_comunaute', 'famille')
-    list_filter = ('famille',)
+    list_display = ('nom', 'nom_long',)
+
+# @admin.register(Communaute)
+# class CommunauteAdmin(admin.ModelAdmin):
+#     list_display = ('nom_comunaute', 'famille')
+#     list_filter = ('famille',)
 
 
 # Bénéficiaire
@@ -122,7 +122,8 @@ class BeneficiaireAdmin(admin.ModelAdmin):
             'fields': (
                 ('nom', 'prenoms', 'sexe'),
                 ('situation_matrimoniale', 'nb_enfants'),
-                ('anciennete_foi', 'communaute',),
+                'anciennete_foi',
+                ('communaute', 'eglise_locale'),
                 ('profession', 'fonction'),
             )
         }),
@@ -203,7 +204,8 @@ class CasAdmin(admin.ModelAdmin):
                 'urgence',
                 ('nom', 'prenoms', 'sexe'),
                 ('situation_matrimoniale', 'nb_enfants'),
-                ('anciennete_foi', 'communaute',),
+                'anciennete_foi',
+                ('communaute', 'eglise_locale'),
                 ('profession', 'fonction'),
                 ('montant_sollicite', 'sollicitation_externe', 'montant_alloue'),
                 ('classification', 'nature'),
