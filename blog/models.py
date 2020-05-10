@@ -209,7 +209,8 @@ class Entite(models.Model):
         abstract = True
 
     def __str__(self):
-        return f"{self.prenoms} {self.nom}"
+        prenoms = self.prenoms if self.prenoms else ""
+        return f"{prenoms} {self.nom}"
 
 
 class Beneficiaire(Entite):
