@@ -196,7 +196,7 @@ class Entite(models.Model):
 
     nom = models.CharField(null=True, blank=True, max_length=64)
     prenoms = models.CharField(max_length=64, null=True, blank=True, verbose_name="prénoms")
-    sexe = models.CharField(null=True, blank=True, max_length=1, choices=CHOIX_SEXE)
+    sexe = models.CharField(null=True, max_length=1, choices=CHOIX_SEXE)
     communaute = models.ForeignKey(Communaute, models.SET_NULL, blank=True, null=True, verbose_name="communauté fréquentée")
     eglise_locale = models.CharField(blank=True, null=True, default='', max_length=128, verbose_name="église locale")
     situation_matrimoniale = models.CharField(max_length=1, blank=True, null=True, choices=SITUATION_MATRIMONIALE)
