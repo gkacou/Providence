@@ -65,6 +65,7 @@ class ProvMembreAdmin(UserAdmin):
     list_display_links = ('last_name', 'first_name',)
     radio_fields = {'sexe': admin.HORIZONTAL}
     ordering = ("last_name", "first_name",)
+    autocomplete_fields = ('communaute',)
 
     # def get_queryset(self, *args, **kwargs):
     #     return super().get_queryset(request)
@@ -106,6 +107,7 @@ class ProvMembreAdmin(UserAdmin):
 @admin.register(Communaute)
 class CommunauteAdmin(admin.ModelAdmin):
     list_display = ('nom', 'nom_long',)
+    search_fields = ('nom', 'nom_long',)
 
 # @admin.register(Communaute)
 # class CommunauteAdmin(admin.ModelAdmin):
@@ -118,6 +120,7 @@ class CommunauteAdmin(admin.ModelAdmin):
 class BeneficiaireAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'nombre_cas')
     radio_fields = {'sexe': admin.HORIZONTAL}
+    search_fields = ('nom', 'prenoms',)
     fieldsets = (
         (None, {
             'fields': (
@@ -129,6 +132,7 @@ class BeneficiaireAdmin(admin.ModelAdmin):
             )
         }),
     )
+    autocomplete_fields = ('communaute',)
 
 
 class CasReunionListFilter(admin.SimpleListFilter):
@@ -199,6 +203,7 @@ class CasAdmin(admin.ModelAdmin):
     form = CasChangeForm
     add_form = CasCreationForm
     radio_fields = {'sexe': admin.HORIZONTAL, 'don_remis': admin.HORIZONTAL}
+    autocomplete_fields = ('beneficiaire', 'communaute',)
     fieldsets = (
         (None, {
             'fields': (

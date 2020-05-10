@@ -27,6 +27,10 @@ class Communaute(models.Model):
     class Meta:
         verbose_name = "communauté"
         ordering = ("nom",)
+        indexes = [
+            models.Index(fields=['nom'], name='comm_nom_idx'),
+            models.Index(fields=['nom_long'], name='comm_nom_long_idx'),
+        ]
 
     def __str__(self):
         return self.nom
@@ -209,8 +213,8 @@ class Entite(models.Model):
         abstract = True
 
     def __str__(self):
-        prenoms = self.prenoms if self.prenoms else ""
-        return f"{prenoms} {self.nom}"
+        prenom = self.prenoms if self.prenoms else ""
+        return f"{prenom} {self.nom}"
 
 
 class Beneficiaire(Entite):
@@ -224,6 +228,10 @@ class Beneficiaire(Entite):
 
     class Meta:
         verbose_name = "bénéficiaire"
+        indexes = [
+            models.Index(fields=['nom'], name='benef_nom_idx'),
+            models.Index(fields=['prenoms'], name='benef_prenoms_idx'),
+        ]
 
 
 class NatureBesoin(models.Model):
