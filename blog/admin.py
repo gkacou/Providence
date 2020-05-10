@@ -117,6 +117,7 @@ class CommunauteAdmin(admin.ModelAdmin):
 @admin.register(Beneficiaire)
 class BeneficiaireAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'nombre_cas')
+    radio_fields = {'sexe': admin.HORIZONTAL}
     fieldsets = (
         (None, {
             'fields': (
@@ -197,6 +198,7 @@ class CasAdmin(admin.ModelAdmin):
     list_filter = (CasReunionListFilter, 'classification',)
     form = CasChangeForm
     add_form = CasCreationForm
+    radio_fields = {'sexe': admin.HORIZONTAL, 'don_remis': admin.HORIZONTAL}
     fieldsets = (
         (None, {
             'fields': (
