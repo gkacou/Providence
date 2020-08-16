@@ -337,7 +337,7 @@ class CasSocialInline(admin.TabularInline):
             urgence_social = obj.reunion.total_urgence_social()
             cotis_dispo = obj.reunion.cotisations_social() - urgence_social
             sollicite = obj.reunion.sollicite_social() - urgence_social
-            estime = obj.montant_sollicite * cotis_dispo // sollicite
+            estime = obj.montant_sollicite * cotis_dispo // sollicite if sollicite != 0 else 0
         return formatte_nombre(estime)
     montant_estime.short_description = "Montant estimé"
 
@@ -384,7 +384,7 @@ class CasMissionInline(admin.TabularInline):
             urgence_mission = obj.reunion.total_urgence_mission()
             cotis_dispo = obj.reunion.cotisations_mission() - urgence_mission
             sollicite = obj.reunion.sollicite_mission() - urgence_mission
-            estime = obj.montant_sollicite * cotis_dispo // sollicite
+            estime = obj.montant_sollicite * cotis_dispo // sollicite if sollicite != 0 else 0
         return formatte_nombre(estime)
     montant_estime.short_description = "Montant estimé"
 
