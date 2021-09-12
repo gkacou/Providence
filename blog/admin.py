@@ -5,11 +5,14 @@ from django.contrib.admin.options import IS_POPUP_VAR
 from django.contrib.auth.admin import UserAdmin
 from django.db import models
 from django.db.models import Count, Sum, F, Q
+from django.db.models.fields import TextField
 from django.forms import CheckboxSelectMultiple
 from django.forms.widgets import TextInput
 from django.contrib.postgres.aggregates import StringAgg
 from django.utils.html import format_html
 from django.urls import resolve
+
+from tinymce.widgets import TinyMCE
 
 from .models import (
     ProvUser,
@@ -240,6 +243,7 @@ class CasAdmin(admin.ModelAdmin):
     )
     formfield_overrides = {
         models.ManyToManyField: {'widget': CheckboxSelectMultiple},
+        models.TextField: {'widget': TinyMCE()},
     }
 
     def get_changeform_initial_data(self, request):
@@ -545,6 +549,11 @@ class ReunionAdmin(admin.ModelAdmin):
         CotisationNonLibereInline,
         AffectationNonLibereInline,
     )
+
+    formfield_overrides = {
+        models.ManyToManyField: {'widget': CheckboxSelectMultiple},
+        models.TextField: {'widget': TinyMCE()},
+    }
 
     def get_queryset(self, request):
         queryset = super().get_queryset(request)
