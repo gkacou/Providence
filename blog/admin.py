@@ -243,7 +243,7 @@ class CasAdmin(admin.ModelAdmin):
     )
     formfield_overrides = {
         models.ManyToManyField: {'widget': CheckboxSelectMultiple},
-        models.TextField: {'widget': TinyMCE()},
+        # models.TextField: {'widget': TinyMCE()},
     }
 
     def get_changeform_initial_data(self, request):
@@ -552,7 +552,7 @@ class ReunionAdmin(admin.ModelAdmin):
 
     formfield_overrides = {
         models.ManyToManyField: {'widget': CheckboxSelectMultiple},
-        models.TextField: {'widget': TinyMCE()},
+        # models.TextField: {'widget': TinyMCE()},
     }
 
     def get_queryset(self, request):
