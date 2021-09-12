@@ -111,7 +111,7 @@ class Reunion(models.Model):
     )
     date_reunion = models.DateField(verbose_name="date de la réunion")
     lieu_reunion = models.CharField(null=True, blank=True, max_length=128, verbose_name="lieu de la réunion")
-    compte_rendu = HTMLField(null=True, blank=True, verbose_name="compte-rendu de la réunion")
+    compte_rendu = models.TextField(null=True, blank=True, verbose_name="compte-rendu de la réunion")
     liste_presence = models.ManyToManyField(ProvUser, blank=True, related_name="presences", verbose_name="membres présents")
 
     class Meta:
