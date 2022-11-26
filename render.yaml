@@ -19,3 +19,4 @@ services:
 databases: # Render PostgreSQL database
   - name: postgresql-pointy-43969
     ipAllowList: [] # only allow internal connections
+    plan: free
